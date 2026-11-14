@@ -1,0 +1,67 @@
+cabal-version: 3.8
+name:          hsxent
+version:       0.3.2
+synopsis:      Haskell bindings for the Xent native UI toolkit
+description:
+  Declarative Elm-style bindings for Xent, a native Windows UI toolkit built on
+  Direct2D, DirectWrite and DirectComposition with WinUI-style controls.
+  Linking requires a Xent release bundle; point @extra-lib-dirs@ at its @lib@
+  directory.
+category:      GUI
+license:       0BSD
+license-file:  LICENSE
+author:        Project Xent
+maintainer:    Project Xent
+homepage:      https://github.com/Project-Xent/hsxent
+bug-reports:   https://github.com/Project-Xent/hsxent/issues
+build-type:    Simple
+tested-with:   GHC ==9.10.3
+extra-source-files:
+  include/xent/*.h
+  include/xtk/*.h
+  include/fluxent/*.h
+
+source-repository head
+  type:     git
+  location: https://github.com/Project-Xent/hsxent.git
+
+flag dev
+  description: Link the separate in-tree xent libraries instead of a release bundle's libxent.a
+  default:     False
+  manual:      True
+
+common shared
+  default-language: GHC2021
+  ghc-options:      -Wall -Wno-name-shadowing -Wno-unused-imports -Wno-orphans
+  build-depends:    base >=4.18 && <5, text >=2.0 && <2.2, containers >=0.6 && <0.8, bytestring >=0.11 && <0.13
+
+library
+  import:           shared
+  hs-source-dirs:   src
+  exposed-modules:  Xent, Xent.Attr, Xent.Controls, Xent.FFI, Xent.Runtime
+  c-sources:        cbits/shim.c
+  cc-options:       -std=c17
+  include-dirs:     include
+  if flag(dev)
+    extra-libraries:
+      fluxent xtk xent_core cwinrt-rt
+      cwinrt-bindings-foundation cwinrt-bindings-ui-composition cwinrt-bindings-ui-composition-interactions
+      cwinrt-bindings-ui-viewmanagement cwinrt-bindings-globalization cwinrt-bindings-globalization-datetimeformatting
+      cwinrt-bindings-globalization-numberformatting cwinrt-bindings-ui-input
+  else
+    extra-libraries: xent
+  extra-libraries:
+    user32 gdi32 dcomp d2d1 d3d11 dxgi dwrite dwmapi ole32 oleaut32 uuid uxtheme imm32 advapi32 shell32
+    coremessaging uiautomationcore runtimeobject windowscodecs
+
+executable counter
+  import:         shared
+  main-is:        examples/counter.hs
+  build-depends:  hsxent
+  ghc-options:    -threaded -optl-mwindows
+
+executable virtual-list
+  import:         shared
+  main-is:        examples/virtual_list.hs
+  build-depends:  hsxent
+  ghc-options:    -threaded -optl-mwindows
