@@ -1,4 +1,5 @@
 #include <fluxent/flux_app.h>
+#include <fluxent/flux_controls.h>
 #include <fluxent/flux_host.h>
 #include <xtk/xtk_catalog.h>
 #include <xtk/xtk_scene.h>
@@ -104,5 +105,6 @@ FluxApp *hsx_app_create(wchar_t const *title, int width, int height, int theme) 
 	  .theme     = ( FluxThemeMode ) theme,
 	  .backdrop  = FLUX_BACKDROP_MICA,
 	};
+	flux_controls_all();
 	return flux_app_create(&cfg);
 }
