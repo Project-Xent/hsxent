@@ -172,6 +172,8 @@ instance HasW Appbartoggle
 
 instance HasW Appbarsep
 
+instance HasW Groupheader
+
 class HasH c where
   h :: P.Float -> Attr c msg
   h v = prop #{const XTK_PROP_HEIGHT} (VF32 v)
@@ -329,6 +331,8 @@ instance HasH Appbarbutton
 instance HasH Appbartoggle
 
 instance HasH Appbarsep
+
+instance HasH Groupheader
 
 class HasGrow c where
   grow :: P.Float -> Attr c msg
@@ -488,6 +492,8 @@ instance HasGrow Appbartoggle
 
 instance HasGrow Appbarsep
 
+instance HasGrow Groupheader
+
 class HasShrink c where
   shrink :: P.Float -> Attr c msg
   shrink v = prop #{const XTK_PROP_SHRINK} (VF32 v)
@@ -531,6 +537,8 @@ instance HasShrink Splitbody
 instance HasShrink Titlebar
 
 instance HasShrink Colheader
+
+instance HasShrink Groupheader
 
 class HasSelf c where
   self :: FlexAlign -> Attr c msg
@@ -690,6 +698,8 @@ instance HasSelf Appbartoggle
 
 instance HasSelf Appbarsep
 
+instance HasSelf Groupheader
+
 class HasMl c where
   ml :: P.Float -> Attr c msg
   ml v = prop #{const XTK_PROP_MARGIN_LEFT} (VF32 v)
@@ -847,6 +857,8 @@ instance HasMl Appbarbutton
 instance HasMl Appbartoggle
 
 instance HasMl Appbarsep
+
+instance HasMl Groupheader
 
 class HasMt c where
   mt :: P.Float -> Attr c msg
@@ -1006,6 +1018,8 @@ instance HasMt Appbartoggle
 
 instance HasMt Appbarsep
 
+instance HasMt Groupheader
+
 class HasMr c where
   mr :: P.Float -> Attr c msg
   mr v = prop #{const XTK_PROP_MARGIN_RIGHT} (VF32 v)
@@ -1164,6 +1178,8 @@ instance HasMr Appbartoggle
 
 instance HasMr Appbarsep
 
+instance HasMr Groupheader
+
 class HasMb c where
   mb :: P.Float -> Attr c msg
   mb v = prop #{const XTK_PROP_MARGIN_BOTTOM} (VF32 v)
@@ -1321,6 +1337,8 @@ instance HasMb Appbarbutton
 instance HasMb Appbartoggle
 
 instance HasMb Appbarsep
+
+instance HasMb Groupheader
 
 class HasTip c where
   tip :: T.Text -> Attr c msg
@@ -1481,6 +1499,8 @@ instance HasTip Appbarbutton
 instance HasTip Appbartoggle
 
 instance HasTip Appbarsep
+
+instance HasTip Groupheader
 
 class HasDir c where
   dir :: StackDirection -> Attr c msg
@@ -2504,6 +2524,42 @@ class HasFit c where
 
 instance HasFit Image
 
+class HasNl c where
+  nl :: P.Float -> Attr c msg
+  nl v = prop #{const XTK_PROP_NINE_GRID_LEFT} (VF32 v)
+
+instance HasNl Image
+
+class HasNt c where
+  nt :: P.Float -> Attr c msg
+  nt v = prop #{const XTK_PROP_NINE_GRID_TOP} (VF32 v)
+
+instance HasNt Image
+
+class HasNr c where
+  nr :: P.Float -> Attr c msg
+  nr v = prop #{const XTK_PROP_NINE_GRID_RIGHT} (VF32 v)
+
+instance HasNr Image
+
+class HasNb c where
+  nb :: P.Float -> Attr c msg
+  nb v = prop #{const XTK_PROP_NINE_GRID_BOTTOM} (VF32 v)
+
+instance HasNb Image
+
+class HasOnOpened c where
+  onOpened :: msg -> Attr c msg
+  onOpened m = on #{const XTK_EVENT_IMAGE_OPENED} (HValue m)
+
+instance HasOnOpened Image
+
+class HasOnFailed c where
+  onFailed :: msg -> Attr c msg
+  onFailed m = on #{const XTK_EVENT_IMAGE_FAILED} (HValue m)
+
+instance HasOnFailed Image
+
 class HasState c where
   state :: ProgressState -> Attr c msg
   state v = prop #{const XTK_PROP_PROGRESS_STATE} (VEnum (toC v))
@@ -2693,6 +2749,18 @@ instance HasFirst Itemsview where
 instance HasFirst Pager where
   type FirstV Pager = PagerButtonVis
   first v = prop #{const XTK_PROP_FIRST_BUTTON} (VEnum (toC v))
+
+class HasRectsel c where
+  rectsel :: P.Bool -> Attr c msg
+  rectsel v = prop #{const XTK_PROP_RECTANGLE_SELECTION} (VBool v)
+
+instance HasRectsel List
+
+instance HasRectsel Listbox
+
+instance HasRectsel Gridview
+
+instance HasRectsel Repeater
 
 class HasOnSelect c where
   type OnSelectV c

@@ -131,7 +131,8 @@ instance XEnum ElementLabel where
   toC ElementLabelCollapsed = #{const XTK_ELEMENT_LABEL_COLLAPSED}
 
 data FontWeight
-  = FontWeightThin
+  = FontWeightInherit
+  | FontWeightThin
   | FontWeightExtraLight
   | FontWeightLight
   | FontWeightRegular
@@ -143,6 +144,7 @@ data FontWeight
   deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
 
 instance XEnum FontWeight where
+  toC FontWeightInherit = #{const XTK_FONT_INHERIT}
   toC FontWeightThin = #{const XTK_FONT_THIN}
   toC FontWeightExtraLight = #{const XTK_FONT_EXTRA_LIGHT}
   toC FontWeightLight = #{const XTK_FONT_LIGHT}
@@ -824,3 +826,8 @@ data Appbarsep
 
 appbarsep :: [Attr Appbarsep msg] -> [El msg] -> El msg
 appbarsep = element #{const XTK_CTRL_APPBARSEP}
+
+data Groupheader
+
+groupheader :: [Attr Groupheader msg] -> [El msg] -> El msg
+groupheader = element #{const XTK_CTRL_GROUPHEADER}
