@@ -51,6 +51,17 @@ instance XEnum FlexWrap where
   toC FlexWrapNoWrap = #{const XENT_FLEX_NO_WRAP}
   toC FlexWrapWrap = #{const XENT_FLEX_WRAP}
 
+data AppBarMode
+  = AppBarModeCompact
+  | AppBarModeMinimal
+  | AppBarModeHidden
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum AppBarMode where
+  toC AppBarModeCompact = #{const XTK_APPBAR_COMPACT}
+  toC AppBarModeMinimal = #{const XTK_APPBAR_MINIMAL}
+  toC AppBarModeHidden = #{const XTK_APPBAR_HIDDEN}
+
 data BadgeMode
   = BadgeModeDot
   | BadgeModeNumber
@@ -96,6 +107,15 @@ instance XEnum Clock where
   toC ClockSystem = #{const XTK_CLOCK_SYSTEM}
   toC ClockH12 = #{const XTK_CLOCK_12H}
   toC ClockH24 = #{const XTK_CLOCK_24H}
+
+data ElementLabel
+  = ElementLabelDefault
+  | ElementLabelCollapsed
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum ElementLabel where
+  toC ElementLabelDefault = #{const XTK_ELEMENT_LABEL_DEFAULT}
+  toC ElementLabelCollapsed = #{const XTK_ELEMENT_LABEL_COLLAPSED}
 
 data FontWeight
   = FontWeightThin
@@ -146,6 +166,17 @@ instance XEnum InfoBarSeverity where
   toC InfoBarSeverityWarning = #{const XTK_INFOBAR_WARNING}
   toC InfoBarSeverityError = #{const XTK_INFOBAR_ERROR}
 
+data LabelPosition
+  = LabelPositionBottom
+  | LabelPositionRight
+  | LabelPositionCollapsed
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum LabelPosition where
+  toC LabelPositionBottom = #{const XTK_LABEL_BOTTOM}
+  toC LabelPositionRight = #{const XTK_LABEL_RIGHT}
+  toC LabelPositionCollapsed = #{const XTK_LABEL_COLLAPSED}
+
 data ListSelMode
   = ListSelModeSingle
   | ListSelModeNone
@@ -158,6 +189,17 @@ instance XEnum ListSelMode where
   toC ListSelModeNone = #{const XTK_LIST_SELECT_NONE}
   toC ListSelModeMultiple = #{const XTK_LIST_SELECT_MULTIPLE}
   toC ListSelModeExtended = #{const XTK_LIST_SELECT_EXTENDED}
+
+data OverflowButton
+  = OverflowButtonAuto
+  | OverflowButtonVisible
+  | OverflowButtonCollapsed
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum OverflowButton where
+  toC OverflowButtonAuto = #{const XTK_OVERFLOW_BUTTON_AUTO}
+  toC OverflowButtonVisible = #{const XTK_OVERFLOW_BUTTON_VISIBLE}
+  toC OverflowButtonCollapsed = #{const XTK_OVERFLOW_BUTTON_COLLAPSED}
 
 data PagerButtonVis
   = PagerButtonVisAuto
@@ -237,6 +279,17 @@ data SliderSnap
 instance XEnum SliderSnap where
   toC SliderSnapStep = #{const XTK_SLIDER_SNAP_STEP}
   toC SliderSnapTicks = #{const XTK_SLIDER_SNAP_TICKS}
+
+data SortDirection
+  = SortDirectionNone
+  | SortDirectionAscending
+  | SortDirectionDescending
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum SortDirection where
+  toC SortDirectionNone = #{const XTK_SORT_NONE}
+  toC SortDirectionAscending = #{const XTK_SORT_ASCENDING}
+  toC SortDirectionDescending = #{const XTK_SORT_DESCENDING}
 
 data Spectrum
   = SpectrumHueSaturation
@@ -343,6 +396,7 @@ data TextTrim
   | TextTrimCharEllipsis
   | TextTrimWord
   | TextTrimWordEllipsis
+  | TextTrimPathEllipsis
   deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
 
 instance XEnum TextTrim where
@@ -351,6 +405,7 @@ instance XEnum TextTrim where
   toC TextTrimCharEllipsis = #{const XTK_TRIM_CHAR_ELLIPSIS}
   toC TextTrimWord = #{const XTK_TRIM_WORD}
   toC TextTrimWordEllipsis = #{const XTK_TRIM_WORD_ELLIPSIS}
+  toC TextTrimPathEllipsis = #{const XTK_TRIM_PATH_ELLIPSIS}
 
 data TickPlacement
   = TickPlacementInline
@@ -726,3 +781,33 @@ data Colorpicker
 
 colorpicker :: [Attr Colorpicker msg] -> [El msg] -> El msg
 colorpicker = element #{const XTK_CTRL_COLORPICKER}
+
+data Colheader
+
+colheader :: [Attr Colheader msg] -> [El msg] -> El msg
+colheader = element #{const XTK_CTRL_COLHEADER}
+
+data Colitem
+
+colitem :: [Attr Colitem msg] -> [El msg] -> El msg
+colitem = element #{const XTK_CTRL_COLITEM}
+
+data Commandbar
+
+commandbar :: [Attr Commandbar msg] -> [El msg] -> El msg
+commandbar = element #{const XTK_CTRL_COMMANDBAR}
+
+data Appbarbutton
+
+appbarbutton :: [Attr Appbarbutton msg] -> [El msg] -> El msg
+appbarbutton = element #{const XTK_CTRL_APPBARBUTTON}
+
+data Appbartoggle
+
+appbartoggle :: [Attr Appbartoggle msg] -> [El msg] -> El msg
+appbartoggle = element #{const XTK_CTRL_APPBARTOGGLE}
+
+data Appbarsep
+
+appbarsep :: [Attr Appbarsep msg] -> [El msg] -> El msg
+appbarsep = element #{const XTK_CTRL_APPBARSEP}

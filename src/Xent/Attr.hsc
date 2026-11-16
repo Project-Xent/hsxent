@@ -160,6 +160,18 @@ instance HasW Calendar
 
 instance HasW Colorpicker
 
+instance HasW Colheader
+
+instance HasW Colitem
+
+instance HasW Commandbar
+
+instance HasW Appbarbutton
+
+instance HasW Appbartoggle
+
+instance HasW Appbarsep
+
 class HasH c where
   h :: P.Float -> Attr c msg
   h v = prop #{const XTK_PROP_HEIGHT} (VF32 v)
@@ -307,6 +319,16 @@ instance HasH Timepicker
 instance HasH Calendar
 
 instance HasH Colorpicker
+
+instance HasH Colheader
+
+instance HasH Commandbar
+
+instance HasH Appbarbutton
+
+instance HasH Appbartoggle
+
+instance HasH Appbarsep
 
 class HasGrow c where
   grow :: P.Float -> Attr c msg
@@ -456,6 +478,16 @@ instance HasGrow Calendar
 
 instance HasGrow Colorpicker
 
+instance HasGrow Colheader
+
+instance HasGrow Commandbar
+
+instance HasGrow Appbarbutton
+
+instance HasGrow Appbartoggle
+
+instance HasGrow Appbarsep
+
 class HasShrink c where
   shrink :: P.Float -> Attr c msg
   shrink v = prop #{const XTK_PROP_SHRINK} (VF32 v)
@@ -497,6 +529,8 @@ instance HasShrink Splitpane
 instance HasShrink Splitbody
 
 instance HasShrink Titlebar
+
+instance HasShrink Colheader
 
 class HasSelf c where
   self :: FlexAlign -> Attr c msg
@@ -646,6 +680,16 @@ instance HasSelf Calendar
 
 instance HasSelf Colorpicker
 
+instance HasSelf Colheader
+
+instance HasSelf Commandbar
+
+instance HasSelf Appbarbutton
+
+instance HasSelf Appbartoggle
+
+instance HasSelf Appbarsep
+
 class HasMl c where
   ml :: P.Float -> Attr c msg
   ml v = prop #{const XTK_PROP_MARGIN_LEFT} (VF32 v)
@@ -793,6 +837,16 @@ instance HasMl Timepicker
 instance HasMl Calendar
 
 instance HasMl Colorpicker
+
+instance HasMl Colheader
+
+instance HasMl Commandbar
+
+instance HasMl Appbarbutton
+
+instance HasMl Appbartoggle
+
+instance HasMl Appbarsep
 
 class HasMt c where
   mt :: P.Float -> Attr c msg
@@ -942,6 +996,16 @@ instance HasMt Calendar
 
 instance HasMt Colorpicker
 
+instance HasMt Colheader
+
+instance HasMt Commandbar
+
+instance HasMt Appbarbutton
+
+instance HasMt Appbartoggle
+
+instance HasMt Appbarsep
+
 class HasMr c where
   mr :: P.Float -> Attr c msg
   mr v = prop #{const XTK_PROP_MARGIN_RIGHT} (VF32 v)
@@ -1089,6 +1153,16 @@ instance HasMr Timepicker
 instance HasMr Calendar
 
 instance HasMr Colorpicker
+
+instance HasMr Colheader
+
+instance HasMr Commandbar
+
+instance HasMr Appbarbutton
+
+instance HasMr Appbartoggle
+
+instance HasMr Appbarsep
 
 class HasMb c where
   mb :: P.Float -> Attr c msg
@@ -1238,6 +1312,16 @@ instance HasMb Calendar
 
 instance HasMb Colorpicker
 
+instance HasMb Colheader
+
+instance HasMb Commandbar
+
+instance HasMb Appbarbutton
+
+instance HasMb Appbartoggle
+
+instance HasMb Appbarsep
+
 class HasTip c where
   tip :: T.Text -> Attr c msg
   tip v = prop #{const XTK_PROP_TOOLTIP} (VStr v)
@@ -1385,6 +1469,18 @@ instance HasTip Timepicker
 instance HasTip Calendar
 
 instance HasTip Colorpicker
+
+instance HasTip Colheader
+
+instance HasTip Colitem
+
+instance HasTip Commandbar
+
+instance HasTip Appbarbutton
+
+instance HasTip Appbartoggle
+
+instance HasTip Appbarsep
 
 class HasDir c where
   dir :: StackDirection -> Attr c msg
@@ -1702,6 +1798,12 @@ instance HasText Avatar
 
 instance HasText Titlebar
 
+instance HasText Colitem
+
+instance HasText Appbarbutton
+
+instance HasText Appbartoggle
+
 class HasFontsize c where
   fontsize :: P.Float -> Attr c msg
   fontsize v = prop #{const XTK_PROP_FONT_SIZE} (VF32 v)
@@ -1842,6 +1944,14 @@ instance HasEnabled Calendar
 
 instance HasEnabled Colorpicker
 
+instance HasEnabled Colitem
+
+instance HasEnabled Commandbar
+
+instance HasEnabled Appbarbutton
+
+instance HasEnabled Appbartoggle
+
 class HasIcon c where
   icon :: T.Text -> Attr c msg
   icon v = prop #{const XTK_PROP_ICON} (VStr v)
@@ -1877,6 +1987,10 @@ instance HasIcon Teachtip
 instance HasIcon Treeitem
 
 instance HasIcon Titlebar
+
+instance HasIcon Appbarbutton
+
+instance HasIcon Appbartoggle
 
 class HasStyle c where
   style :: ButtonStyle -> Attr c msg
@@ -1956,6 +2070,10 @@ instance HasOnInvoke Titlebar
 
 instance HasOnInvoke Looping
 
+instance HasOnInvoke Colitem
+
+instance HasOnInvoke Appbarbutton
+
 class HasChecked c where
   checked :: P.Bool -> Attr c msg
   checked v = prop #{const XTK_PROP_CHECKED} (VBool v)
@@ -1969,6 +2087,8 @@ instance HasChecked Radio
 instance HasChecked Switch
 
 instance HasChecked Togglesplit
+
+instance HasChecked Appbartoggle
 
 class HasOnChange c where
   type OnChangeV c
@@ -2017,6 +2137,10 @@ instance HasOnChange Togglesplit where
 instance HasOnChange Scrollbar where
   type OnChangeV Scrollbar = P.Double
   onChange f = on #{const XTK_EVENT_CHANGE_F64} (HF64 f)
+
+instance HasOnChange Appbartoggle where
+  type OnChangeV Appbartoggle = P.Bool
+  onChange f = on #{const XTK_EVENT_CHANGE_BOOL} (HBool f)
 
 class HasIndeterminate c where
   indeterminate :: P.Bool -> Attr c msg
@@ -2426,6 +2550,10 @@ instance HasMode Calendar where
   type ModeV Calendar = CalendarMode
   mode v = prop #{const XTK_PROP_SELECTION_MODE} (VEnum (toC v))
 
+instance HasMode Commandbar where
+  type ModeV Commandbar = AppBarMode
+  mode v = prop #{const XTK_PROP_CLOSED_DISPLAY_MODE} (VEnum (toC v))
+
 class HasFirst c where
   type FirstV c
   first :: FirstV c -> Attr c msg
@@ -2566,6 +2694,8 @@ instance HasOpen Teachtip
 
 instance HasOpen Splitview
 
+instance HasOpen Commandbar
+
 class HasEditable c where
   editable :: P.Bool -> Attr c msg
   editable v = prop #{const XTK_PROP_IS_EDITABLE} (VBool v)
@@ -2673,10 +2803,24 @@ class HasPrimary c where
 instance HasPrimary Dialog
 
 class HasSecondary c where
-  secondary :: T.Text -> Attr c msg
+  type SecondaryV c
+  secondary :: SecondaryV c -> Attr c msg
+
+instance HasSecondary Dialog where
+  type SecondaryV Dialog = T.Text
   secondary v = prop #{const XTK_PROP_SECONDARY_TEXT} (VStr v)
 
-instance HasSecondary Dialog
+instance HasSecondary Appbarbutton where
+  type SecondaryV Appbarbutton = P.Bool
+  secondary v = prop #{const XTK_PROP_SECONDARY} (VBool v)
+
+instance HasSecondary Appbartoggle where
+  type SecondaryV Appbartoggle = P.Bool
+  secondary v = prop #{const XTK_PROP_SECONDARY} (VBool v)
+
+instance HasSecondary Appbarsep where
+  type SecondaryV Appbarsep = P.Bool
+  secondary v = prop #{const XTK_PROP_SECONDARY} (VBool v)
 
 class HasClose c where
   close :: T.Text -> Attr c msg
@@ -3037,6 +3181,110 @@ class HasSpectrum c where
   spectrum v = prop #{const XTK_PROP_SPECTRUM} (VEnum (toC v))
 
 instance HasSpectrum Colorpicker
+
+class HasMinw c where
+  minw :: P.Float -> Attr c msg
+  minw v = prop #{const XTK_PROP_MIN_WIDTH} (VF32 v)
+
+instance HasMinw Colitem
+
+class HasMaxw c where
+  maxw :: P.Float -> Attr c msg
+  maxw v = prop #{const XTK_PROP_MAX_WIDTH} (VF32 v)
+
+instance HasMaxw Colitem
+
+class HasAlign c where
+  align :: TextAlign -> Attr c msg
+  align v = prop #{const XTK_PROP_TEXT_ALIGN} (VEnum (toC v))
+
+instance HasAlign Colitem
+
+class HasResizable c where
+  resizable :: P.Bool -> Attr c msg
+  resizable v = prop #{const XTK_PROP_RESIZABLE} (VBool v)
+
+instance HasResizable Colitem
+
+class HasSort c where
+  sort :: SortDirection -> Attr c msg
+  sort v = prop #{const XTK_PROP_SORT_DIRECTION} (VEnum (toC v))
+
+instance HasSort Colitem
+
+class HasOnResize c where
+  onResize :: (P.Float -> msg) -> Attr c msg
+  onResize f = on #{const XTK_EVENT_RESIZE} (HF32 f)
+
+instance HasOnResize Colitem
+
+class HasOnFit c where
+  onFit :: msg -> Attr c msg
+  onFit m = on #{const XTK_EVENT_FIT} (HValue m)
+
+instance HasOnFit Colitem
+
+class HasOnReorder c where
+  onReorder :: (Int32 -> msg) -> Attr c msg
+  onReorder f = on #{const XTK_EVENT_REORDER} (HI32 f)
+
+instance HasOnReorder Colitem
+
+class HasSticky c where
+  sticky :: P.Bool -> Attr c msg
+  sticky v = prop #{const XTK_PROP_IS_STICKY} (VBool v)
+
+instance HasSticky Commandbar
+
+class HasLabels c where
+  labels :: LabelPosition -> Attr c msg
+  labels v = prop #{const XTK_PROP_DEFAULT_LABEL_POSITION} (VEnum (toC v))
+
+instance HasLabels Commandbar
+
+class HasMore c where
+  more :: OverflowButton -> Attr c msg
+  more v = prop #{const XTK_PROP_OVERFLOW_BUTTON_VISIBILITY} (VEnum (toC v))
+
+instance HasMore Commandbar
+
+class HasDynamic c where
+  dynamic :: P.Bool -> Attr c msg
+  dynamic v = prop #{const XTK_PROP_DYNAMIC_OVERFLOW} (VBool v)
+
+instance HasDynamic Commandbar
+
+class HasOnOpen c where
+  onOpen :: (P.Bool -> msg) -> Attr c msg
+  onOpen f = on #{const XTK_EVENT_OPEN} (HBool f)
+
+instance HasOnOpen Commandbar
+
+class HasLabelpos c where
+  labelpos :: ElementLabel -> Attr c msg
+  labelpos v = prop #{const XTK_PROP_LABEL_POSITION} (VEnum (toC v))
+
+instance HasLabelpos Appbarbutton
+
+instance HasLabelpos Appbartoggle
+
+class HasAccel c where
+  accel :: T.Text -> Attr c msg
+  accel v = prop #{const XTK_PROP_ACCELERATOR_TEXT} (VStr v)
+
+instance HasAccel Appbarbutton
+
+instance HasAccel Appbartoggle
+
+class HasOrder c where
+  order :: Int32 -> Attr c msg
+  order v = prop #{const XTK_PROP_DYNAMIC_OVERFLOW_ORDER} (VI32 v)
+
+instance HasOrder Appbarbutton
+
+instance HasOrder Appbartoggle
+
+instance HasOrder Appbarsep
 
 class HasVirtualItems c where
   virtualItems :: P.Int -> (P.Int -> El msg) -> Attr c msg
