@@ -1728,6 +1728,118 @@ instance HasWrap Splitpane
 
 instance HasWrap Splitbody
 
+class HasDrop c where
+  drop :: DropOperation -> Attr c msg
+  drop v = prop #{const XTK_PROP_DROP_OPERATION} (VEnum (toC v))
+
+instance HasDrop Container
+
+instance HasDrop Card
+
+instance HasDrop Expbody
+
+instance HasDrop Dialogbody
+
+instance HasDrop Splitpane
+
+instance HasDrop Splitbody
+
+class HasDragtext c where
+  dragtext :: T.Text -> Attr c msg
+  dragtext v = prop #{const XTK_PROP_DRAG_TEXT} (VStr v)
+
+instance HasDragtext Container
+
+instance HasDragtext Card
+
+instance HasDragtext Expbody
+
+instance HasDragtext Dialogbody
+
+instance HasDragtext Splitpane
+
+instance HasDragtext Splitbody
+
+class HasDragfiles c where
+  dragfiles :: T.Text -> Attr c msg
+  dragfiles v = prop #{const XTK_PROP_DRAG_FILES} (VStr v)
+
+instance HasDragfiles Container
+
+instance HasDragfiles Card
+
+instance HasDragfiles Expbody
+
+instance HasDragfiles Dialogbody
+
+instance HasDragfiles Splitpane
+
+instance HasDragfiles Splitbody
+
+class HasOnDraghover c where
+  onDraghover :: (P.Bool -> msg) -> Attr c msg
+  onDraghover f = on #{const XTK_EVENT_DRAG_HOVER} (HBool f)
+
+instance HasOnDraghover Container
+
+instance HasOnDraghover Card
+
+instance HasOnDraghover Expbody
+
+instance HasOnDraghover Dialogbody
+
+instance HasOnDraghover Splitpane
+
+instance HasOnDraghover Splitbody
+
+class HasOnDropfiles c where
+  onDropfiles :: (T.Text -> msg) -> Attr c msg
+  onDropfiles f = on #{const XTK_EVENT_DROP_FILES} (HStr f)
+
+instance HasOnDropfiles Container
+
+instance HasOnDropfiles Card
+
+instance HasOnDropfiles Expbody
+
+instance HasOnDropfiles Dialogbody
+
+instance HasOnDropfiles Splitpane
+
+instance HasOnDropfiles Splitbody
+
+class HasOnDroptext c where
+  onDroptext :: (T.Text -> msg) -> Attr c msg
+  onDroptext f = on #{const XTK_EVENT_DROP_TEXT} (HStr f)
+
+instance HasOnDroptext Container
+
+instance HasOnDroptext Card
+
+instance HasOnDroptext Expbody
+
+instance HasOnDroptext Dialogbody
+
+instance HasOnDroptext Splitpane
+
+instance HasOnDroptext Splitbody
+
+class HasOnDragcompleted c where
+  onDragcompleted :: (Int32 -> msg) -> Attr c msg
+  onDragcompleted f = on #{const XTK_EVENT_DRAG_COMPLETED} (HI32 f)
+
+instance HasOnDragcompleted Container
+
+instance HasOnDragcompleted Card
+
+instance HasOnDragcompleted Expbody
+
+instance HasOnDragcompleted Dialogbody
+
+instance HasOnDragcompleted Splitpane
+
+instance HasOnDragcompleted Splitbody
+
 class HasText c where
   text :: T.Text -> Attr c msg
   text v = prop #{const XTK_PROP_TEXT} (VStr v)

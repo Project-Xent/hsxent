@@ -108,6 +108,19 @@ instance XEnum Clock where
   toC ClockH12 = #{const XTK_CLOCK_12H}
   toC ClockH24 = #{const XTK_CLOCK_24H}
 
+data DropOperation
+  = DropOperationNone
+  | DropOperationCopy
+  | DropOperationMove
+  | DropOperationLink
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum DropOperation where
+  toC DropOperationNone = #{const XTK_DROP_NONE}
+  toC DropOperationCopy = #{const XTK_DROP_COPY}
+  toC DropOperationMove = #{const XTK_DROP_MOVE}
+  toC DropOperationLink = #{const XTK_DROP_LINK}
+
 data ElementLabel
   = ElementLabelDefault
   | ElementLabelCollapsed
