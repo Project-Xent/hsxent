@@ -1796,6 +1796,22 @@ instance HasDragfiles Splitpane
 
 instance HasDragfiles Splitbody
 
+class HasFlow c where
+  flow :: Direction -> Attr c msg
+  flow v = prop #{const XTK_PROP_FLOW_DIRECTION} (VEnum (toC v))
+
+instance HasFlow Container
+
+instance HasFlow Card
+
+instance HasFlow Expbody
+
+instance HasFlow Dialogbody
+
+instance HasFlow Splitpane
+
+instance HasFlow Splitbody
+
 class HasOnDraghover c where
   onDraghover :: (P.Bool -> msg) -> Attr c msg
   onDraghover f = on #{const XTK_EVENT_DRAG_HOVER} (HBool f)

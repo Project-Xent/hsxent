@@ -8,6 +8,17 @@ module Xent.Controls where
 import qualified Prelude as P
 import Xent.Runtime (Attr, El, XEnum (..), element)
 
+data Direction
+  = DirectionInherit
+  | DirectionLtr
+  | DirectionRtl
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum Direction where
+  toC DirectionInherit = #{const XENT_DIRECTION_INHERIT}
+  toC DirectionLtr = #{const XENT_DIRECTION_LTR}
+  toC DirectionRtl = #{const XENT_DIRECTION_RTL}
+
 data FlexAlign
   = FlexAlignAuto
   | FlexAlignStart
@@ -204,6 +215,21 @@ instance XEnum ListSelMode where
   toC ListSelModeNone = #{const XTK_LIST_SELECT_NONE}
   toC ListSelModeMultiple = #{const XTK_LIST_SELECT_MULTIPLE}
   toC ListSelModeExtended = #{const XTK_LIST_SELECT_EXTENDED}
+
+data NavKind
+  = NavKindItem
+  | NavKindHeader
+  | NavKindSeparator
+  | NavKindFooter
+  | NavKindChild
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum NavKind where
+  toC NavKindItem = #{const XTK_NAV_ITEM}
+  toC NavKindHeader = #{const XTK_NAV_HEADER}
+  toC NavKindSeparator = #{const XTK_NAV_SEPARATOR}
+  toC NavKindFooter = #{const XTK_NAV_FOOTER}
+  toC NavKindChild = #{const XTK_NAV_CHILD}
 
 data OverflowButton
   = OverflowButtonAuto
