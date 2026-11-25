@@ -1,6 +1,6 @@
 cabal-version: 3.8
 name:          hsxent
-version:       0.3.3
+version:       0.4.0
 synopsis:      Haskell bindings for the Xent native UI toolkit
 description:
   Declarative Elm-style bindings for Xent, a native Windows UI toolkit built on
