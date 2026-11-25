@@ -174,6 +174,8 @@ instance HasW Appbarsep
 
 instance HasW Groupheader
 
+instance HasW Navslot
+
 class HasH c where
   h :: P.Float -> Attr c msg
   h v = prop #{const XTK_PROP_HEIGHT} (VF32 v)
@@ -333,6 +335,8 @@ instance HasH Appbartoggle
 instance HasH Appbarsep
 
 instance HasH Groupheader
+
+instance HasH Navslot
 
 class HasGrow c where
   grow :: P.Float -> Attr c msg
@@ -494,6 +498,8 @@ instance HasGrow Appbarsep
 
 instance HasGrow Groupheader
 
+instance HasGrow Navslot
+
 class HasShrink c where
   shrink :: P.Float -> Attr c msg
   shrink v = prop #{const XTK_PROP_SHRINK} (VF32 v)
@@ -539,6 +545,8 @@ instance HasShrink Titlebar
 instance HasShrink Colheader
 
 instance HasShrink Groupheader
+
+instance HasShrink Navslot
 
 class HasSelf c where
   self :: FlexAlign -> Attr c msg
@@ -699,6 +707,8 @@ instance HasSelf Appbartoggle
 instance HasSelf Appbarsep
 
 instance HasSelf Groupheader
+
+instance HasSelf Navslot
 
 class HasMl c where
   ml :: P.Float -> Attr c msg
@@ -1501,6 +1511,4380 @@ instance HasTip Appbartoggle
 instance HasTip Appbarsep
 
 instance HasTip Groupheader
+
+class HasAname c where
+  aname :: T.Text -> Attr c msg
+  aname v = prop #{const XTK_PROP_A11Y_NAME} (VStr v)
+
+instance HasAname Container
+
+instance HasAname Text
+
+instance HasAname Button
+
+instance HasAname Toggle
+
+instance HasAname Checkbox
+
+instance HasAname Radio
+
+instance HasAname Switch
+
+instance HasAname Slider
+
+instance HasAname Textbox
+
+instance HasAname Scroll
+
+instance HasAname Image
+
+instance HasAname Progress
+
+instance HasAname List
+
+instance HasAname Tab
+
+instance HasAname Card
+
+instance HasAname Divider
+
+instance HasAname Canvas
+
+instance HasAname Password
+
+instance HasAname Number
+
+instance HasAname Link
+
+instance HasAname Repeat
+
+instance HasAname Progressring
+
+instance HasAname Badge
+
+instance HasAname Tooltip
+
+instance HasAname Flyout
+
+instance HasAname Menufly
+
+instance HasAname Dropdown
+
+instance HasAname Split
+
+instance HasAname Combo
+
+instance HasAname Expander
+
+instance HasAname Exphead
+
+instance HasAname Expbody
+
+instance HasAname Infobar
+
+instance HasAname Dialog
+
+instance HasAname Dialogbody
+
+instance HasAname Menubar
+
+instance HasAname Menuitem
+
+instance HasAname Nav
+
+instance HasAname Navitem
+
+instance HasAname Tabs
+
+instance HasAname Tabitem
+
+instance HasAname Listitem
+
+instance HasAname Listbox
+
+instance HasAname Gridview
+
+instance HasAname Repeater
+
+instance HasAname Itemsview
+
+instance HasAname Flip
+
+instance HasAname Pips
+
+instance HasAname Suggest
+
+instance HasAname Togglesplit
+
+instance HasAname Radiogroup
+
+instance HasAname Rating
+
+instance HasAname Selector
+
+instance HasAname Selectoritem
+
+instance HasAname Breadcrumb
+
+instance HasAname Crumb
+
+instance HasAname Teachtip
+
+instance HasAname Tree
+
+instance HasAname Treeitem
+
+instance HasAname Refresh
+
+instance HasAname Avatar
+
+instance HasAname Pager
+
+instance HasAname Splitview
+
+instance HasAname Splitpane
+
+instance HasAname Splitbody
+
+instance HasAname Titlebar
+
+instance HasAname Scrollbar
+
+instance HasAname Looping
+
+instance HasAname Datepicker
+
+instance HasAname Timepicker
+
+instance HasAname Calendar
+
+instance HasAname Colorpicker
+
+instance HasAname Colheader
+
+instance HasAname Colitem
+
+instance HasAname Commandbar
+
+instance HasAname Appbarbutton
+
+instance HasAname Appbartoggle
+
+instance HasAname Appbarsep
+
+instance HasAname Groupheader
+
+class HasAid c where
+  aid :: T.Text -> Attr c msg
+  aid v = prop #{const XTK_PROP_A11Y_ID} (VStr v)
+
+instance HasAid Container
+
+instance HasAid Text
+
+instance HasAid Button
+
+instance HasAid Toggle
+
+instance HasAid Checkbox
+
+instance HasAid Radio
+
+instance HasAid Switch
+
+instance HasAid Slider
+
+instance HasAid Textbox
+
+instance HasAid Scroll
+
+instance HasAid Image
+
+instance HasAid Progress
+
+instance HasAid List
+
+instance HasAid Tab
+
+instance HasAid Card
+
+instance HasAid Divider
+
+instance HasAid Canvas
+
+instance HasAid Password
+
+instance HasAid Number
+
+instance HasAid Link
+
+instance HasAid Repeat
+
+instance HasAid Progressring
+
+instance HasAid Badge
+
+instance HasAid Tooltip
+
+instance HasAid Flyout
+
+instance HasAid Menufly
+
+instance HasAid Dropdown
+
+instance HasAid Split
+
+instance HasAid Combo
+
+instance HasAid Expander
+
+instance HasAid Exphead
+
+instance HasAid Expbody
+
+instance HasAid Infobar
+
+instance HasAid Dialog
+
+instance HasAid Dialogbody
+
+instance HasAid Menubar
+
+instance HasAid Menuitem
+
+instance HasAid Nav
+
+instance HasAid Navitem
+
+instance HasAid Tabs
+
+instance HasAid Tabitem
+
+instance HasAid Listitem
+
+instance HasAid Listbox
+
+instance HasAid Gridview
+
+instance HasAid Repeater
+
+instance HasAid Itemsview
+
+instance HasAid Flip
+
+instance HasAid Pips
+
+instance HasAid Suggest
+
+instance HasAid Togglesplit
+
+instance HasAid Radiogroup
+
+instance HasAid Rating
+
+instance HasAid Selector
+
+instance HasAid Selectoritem
+
+instance HasAid Breadcrumb
+
+instance HasAid Crumb
+
+instance HasAid Teachtip
+
+instance HasAid Tree
+
+instance HasAid Treeitem
+
+instance HasAid Refresh
+
+instance HasAid Avatar
+
+instance HasAid Pager
+
+instance HasAid Splitview
+
+instance HasAid Splitpane
+
+instance HasAid Splitbody
+
+instance HasAid Titlebar
+
+instance HasAid Scrollbar
+
+instance HasAid Looping
+
+instance HasAid Datepicker
+
+instance HasAid Timepicker
+
+instance HasAid Calendar
+
+instance HasAid Colorpicker
+
+instance HasAid Colheader
+
+instance HasAid Colitem
+
+instance HasAid Commandbar
+
+instance HasAid Appbarbutton
+
+instance HasAid Appbartoggle
+
+instance HasAid Appbarsep
+
+instance HasAid Groupheader
+
+class HasAhelp c where
+  ahelp :: T.Text -> Attr c msg
+  ahelp v = prop #{const XTK_PROP_A11Y_HELP} (VStr v)
+
+instance HasAhelp Container
+
+instance HasAhelp Text
+
+instance HasAhelp Button
+
+instance HasAhelp Toggle
+
+instance HasAhelp Checkbox
+
+instance HasAhelp Radio
+
+instance HasAhelp Switch
+
+instance HasAhelp Slider
+
+instance HasAhelp Textbox
+
+instance HasAhelp Scroll
+
+instance HasAhelp Image
+
+instance HasAhelp Progress
+
+instance HasAhelp List
+
+instance HasAhelp Tab
+
+instance HasAhelp Card
+
+instance HasAhelp Divider
+
+instance HasAhelp Canvas
+
+instance HasAhelp Password
+
+instance HasAhelp Number
+
+instance HasAhelp Link
+
+instance HasAhelp Repeat
+
+instance HasAhelp Progressring
+
+instance HasAhelp Badge
+
+instance HasAhelp Tooltip
+
+instance HasAhelp Flyout
+
+instance HasAhelp Menufly
+
+instance HasAhelp Dropdown
+
+instance HasAhelp Split
+
+instance HasAhelp Combo
+
+instance HasAhelp Expander
+
+instance HasAhelp Exphead
+
+instance HasAhelp Expbody
+
+instance HasAhelp Infobar
+
+instance HasAhelp Dialog
+
+instance HasAhelp Dialogbody
+
+instance HasAhelp Menubar
+
+instance HasAhelp Menuitem
+
+instance HasAhelp Nav
+
+instance HasAhelp Navitem
+
+instance HasAhelp Tabs
+
+instance HasAhelp Tabitem
+
+instance HasAhelp Listitem
+
+instance HasAhelp Listbox
+
+instance HasAhelp Gridview
+
+instance HasAhelp Repeater
+
+instance HasAhelp Itemsview
+
+instance HasAhelp Flip
+
+instance HasAhelp Pips
+
+instance HasAhelp Suggest
+
+instance HasAhelp Togglesplit
+
+instance HasAhelp Radiogroup
+
+instance HasAhelp Rating
+
+instance HasAhelp Selector
+
+instance HasAhelp Selectoritem
+
+instance HasAhelp Breadcrumb
+
+instance HasAhelp Crumb
+
+instance HasAhelp Teachtip
+
+instance HasAhelp Tree
+
+instance HasAhelp Treeitem
+
+instance HasAhelp Refresh
+
+instance HasAhelp Avatar
+
+instance HasAhelp Pager
+
+instance HasAhelp Splitview
+
+instance HasAhelp Splitpane
+
+instance HasAhelp Splitbody
+
+instance HasAhelp Titlebar
+
+instance HasAhelp Scrollbar
+
+instance HasAhelp Looping
+
+instance HasAhelp Datepicker
+
+instance HasAhelp Timepicker
+
+instance HasAhelp Calendar
+
+instance HasAhelp Colorpicker
+
+instance HasAhelp Colheader
+
+instance HasAhelp Colitem
+
+instance HasAhelp Commandbar
+
+instance HasAhelp Appbarbutton
+
+instance HasAhelp Appbartoggle
+
+instance HasAhelp Appbarsep
+
+instance HasAhelp Groupheader
+
+class HasAdesc c where
+  adesc :: T.Text -> Attr c msg
+  adesc v = prop #{const XTK_PROP_A11Y_DESCRIPTION} (VStr v)
+
+instance HasAdesc Container
+
+instance HasAdesc Text
+
+instance HasAdesc Button
+
+instance HasAdesc Toggle
+
+instance HasAdesc Checkbox
+
+instance HasAdesc Radio
+
+instance HasAdesc Switch
+
+instance HasAdesc Slider
+
+instance HasAdesc Textbox
+
+instance HasAdesc Scroll
+
+instance HasAdesc Image
+
+instance HasAdesc Progress
+
+instance HasAdesc List
+
+instance HasAdesc Tab
+
+instance HasAdesc Card
+
+instance HasAdesc Divider
+
+instance HasAdesc Canvas
+
+instance HasAdesc Password
+
+instance HasAdesc Number
+
+instance HasAdesc Link
+
+instance HasAdesc Repeat
+
+instance HasAdesc Progressring
+
+instance HasAdesc Badge
+
+instance HasAdesc Tooltip
+
+instance HasAdesc Flyout
+
+instance HasAdesc Menufly
+
+instance HasAdesc Dropdown
+
+instance HasAdesc Split
+
+instance HasAdesc Combo
+
+instance HasAdesc Expander
+
+instance HasAdesc Exphead
+
+instance HasAdesc Expbody
+
+instance HasAdesc Infobar
+
+instance HasAdesc Dialog
+
+instance HasAdesc Dialogbody
+
+instance HasAdesc Menubar
+
+instance HasAdesc Menuitem
+
+instance HasAdesc Nav
+
+instance HasAdesc Navitem
+
+instance HasAdesc Tabs
+
+instance HasAdesc Tabitem
+
+instance HasAdesc Listitem
+
+instance HasAdesc Listbox
+
+instance HasAdesc Gridview
+
+instance HasAdesc Repeater
+
+instance HasAdesc Itemsview
+
+instance HasAdesc Flip
+
+instance HasAdesc Pips
+
+instance HasAdesc Suggest
+
+instance HasAdesc Togglesplit
+
+instance HasAdesc Radiogroup
+
+instance HasAdesc Rating
+
+instance HasAdesc Selector
+
+instance HasAdesc Selectoritem
+
+instance HasAdesc Breadcrumb
+
+instance HasAdesc Crumb
+
+instance HasAdesc Teachtip
+
+instance HasAdesc Tree
+
+instance HasAdesc Treeitem
+
+instance HasAdesc Refresh
+
+instance HasAdesc Avatar
+
+instance HasAdesc Pager
+
+instance HasAdesc Splitview
+
+instance HasAdesc Splitpane
+
+instance HasAdesc Splitbody
+
+instance HasAdesc Titlebar
+
+instance HasAdesc Scrollbar
+
+instance HasAdesc Looping
+
+instance HasAdesc Datepicker
+
+instance HasAdesc Timepicker
+
+instance HasAdesc Calendar
+
+instance HasAdesc Colorpicker
+
+instance HasAdesc Colheader
+
+instance HasAdesc Colitem
+
+instance HasAdesc Commandbar
+
+instance HasAdesc Appbarbutton
+
+instance HasAdesc Appbartoggle
+
+instance HasAdesc Appbarsep
+
+instance HasAdesc Groupheader
+
+class HasAstatus c where
+  astatus :: T.Text -> Attr c msg
+  astatus v = prop #{const XTK_PROP_A11Y_ITEM_STATUS} (VStr v)
+
+instance HasAstatus Container
+
+instance HasAstatus Text
+
+instance HasAstatus Button
+
+instance HasAstatus Toggle
+
+instance HasAstatus Checkbox
+
+instance HasAstatus Radio
+
+instance HasAstatus Switch
+
+instance HasAstatus Slider
+
+instance HasAstatus Textbox
+
+instance HasAstatus Scroll
+
+instance HasAstatus Image
+
+instance HasAstatus Progress
+
+instance HasAstatus List
+
+instance HasAstatus Tab
+
+instance HasAstatus Card
+
+instance HasAstatus Divider
+
+instance HasAstatus Canvas
+
+instance HasAstatus Password
+
+instance HasAstatus Number
+
+instance HasAstatus Link
+
+instance HasAstatus Repeat
+
+instance HasAstatus Progressring
+
+instance HasAstatus Badge
+
+instance HasAstatus Tooltip
+
+instance HasAstatus Flyout
+
+instance HasAstatus Menufly
+
+instance HasAstatus Dropdown
+
+instance HasAstatus Split
+
+instance HasAstatus Combo
+
+instance HasAstatus Expander
+
+instance HasAstatus Exphead
+
+instance HasAstatus Expbody
+
+instance HasAstatus Infobar
+
+instance HasAstatus Dialog
+
+instance HasAstatus Dialogbody
+
+instance HasAstatus Menubar
+
+instance HasAstatus Menuitem
+
+instance HasAstatus Nav
+
+instance HasAstatus Navitem
+
+instance HasAstatus Tabs
+
+instance HasAstatus Tabitem
+
+instance HasAstatus Listitem
+
+instance HasAstatus Listbox
+
+instance HasAstatus Gridview
+
+instance HasAstatus Repeater
+
+instance HasAstatus Itemsview
+
+instance HasAstatus Flip
+
+instance HasAstatus Pips
+
+instance HasAstatus Suggest
+
+instance HasAstatus Togglesplit
+
+instance HasAstatus Radiogroup
+
+instance HasAstatus Rating
+
+instance HasAstatus Selector
+
+instance HasAstatus Selectoritem
+
+instance HasAstatus Breadcrumb
+
+instance HasAstatus Crumb
+
+instance HasAstatus Teachtip
+
+instance HasAstatus Tree
+
+instance HasAstatus Treeitem
+
+instance HasAstatus Refresh
+
+instance HasAstatus Avatar
+
+instance HasAstatus Pager
+
+instance HasAstatus Splitview
+
+instance HasAstatus Splitpane
+
+instance HasAstatus Splitbody
+
+instance HasAstatus Titlebar
+
+instance HasAstatus Scrollbar
+
+instance HasAstatus Looping
+
+instance HasAstatus Datepicker
+
+instance HasAstatus Timepicker
+
+instance HasAstatus Calendar
+
+instance HasAstatus Colorpicker
+
+instance HasAstatus Colheader
+
+instance HasAstatus Colitem
+
+instance HasAstatus Commandbar
+
+instance HasAstatus Appbarbutton
+
+instance HasAstatus Appbartoggle
+
+instance HasAstatus Appbarsep
+
+instance HasAstatus Groupheader
+
+class HasAitem c where
+  aitem :: T.Text -> Attr c msg
+  aitem v = prop #{const XTK_PROP_A11Y_ITEM_TYPE} (VStr v)
+
+instance HasAitem Container
+
+instance HasAitem Text
+
+instance HasAitem Button
+
+instance HasAitem Toggle
+
+instance HasAitem Checkbox
+
+instance HasAitem Radio
+
+instance HasAitem Switch
+
+instance HasAitem Slider
+
+instance HasAitem Textbox
+
+instance HasAitem Scroll
+
+instance HasAitem Image
+
+instance HasAitem Progress
+
+instance HasAitem List
+
+instance HasAitem Tab
+
+instance HasAitem Card
+
+instance HasAitem Divider
+
+instance HasAitem Canvas
+
+instance HasAitem Password
+
+instance HasAitem Number
+
+instance HasAitem Link
+
+instance HasAitem Repeat
+
+instance HasAitem Progressring
+
+instance HasAitem Badge
+
+instance HasAitem Tooltip
+
+instance HasAitem Flyout
+
+instance HasAitem Menufly
+
+instance HasAitem Dropdown
+
+instance HasAitem Split
+
+instance HasAitem Combo
+
+instance HasAitem Expander
+
+instance HasAitem Exphead
+
+instance HasAitem Expbody
+
+instance HasAitem Infobar
+
+instance HasAitem Dialog
+
+instance HasAitem Dialogbody
+
+instance HasAitem Menubar
+
+instance HasAitem Menuitem
+
+instance HasAitem Nav
+
+instance HasAitem Navitem
+
+instance HasAitem Tabs
+
+instance HasAitem Tabitem
+
+instance HasAitem Listitem
+
+instance HasAitem Listbox
+
+instance HasAitem Gridview
+
+instance HasAitem Repeater
+
+instance HasAitem Itemsview
+
+instance HasAitem Flip
+
+instance HasAitem Pips
+
+instance HasAitem Suggest
+
+instance HasAitem Togglesplit
+
+instance HasAitem Radiogroup
+
+instance HasAitem Rating
+
+instance HasAitem Selector
+
+instance HasAitem Selectoritem
+
+instance HasAitem Breadcrumb
+
+instance HasAitem Crumb
+
+instance HasAitem Teachtip
+
+instance HasAitem Tree
+
+instance HasAitem Treeitem
+
+instance HasAitem Refresh
+
+instance HasAitem Avatar
+
+instance HasAitem Pager
+
+instance HasAitem Splitview
+
+instance HasAitem Splitpane
+
+instance HasAitem Splitbody
+
+instance HasAitem Titlebar
+
+instance HasAitem Scrollbar
+
+instance HasAitem Looping
+
+instance HasAitem Datepicker
+
+instance HasAitem Timepicker
+
+instance HasAitem Calendar
+
+instance HasAitem Colorpicker
+
+instance HasAitem Colheader
+
+instance HasAitem Colitem
+
+instance HasAitem Commandbar
+
+instance HasAitem Appbarbutton
+
+instance HasAitem Appbartoggle
+
+instance HasAitem Appbarsep
+
+instance HasAitem Groupheader
+
+class HasActype c where
+  actype :: T.Text -> Attr c msg
+  actype v = prop #{const XTK_PROP_A11Y_CONTROL_TYPE} (VStr v)
+
+instance HasActype Container
+
+instance HasActype Text
+
+instance HasActype Button
+
+instance HasActype Toggle
+
+instance HasActype Checkbox
+
+instance HasActype Radio
+
+instance HasActype Switch
+
+instance HasActype Slider
+
+instance HasActype Textbox
+
+instance HasActype Scroll
+
+instance HasActype Image
+
+instance HasActype Progress
+
+instance HasActype List
+
+instance HasActype Tab
+
+instance HasActype Card
+
+instance HasActype Divider
+
+instance HasActype Canvas
+
+instance HasActype Password
+
+instance HasActype Number
+
+instance HasActype Link
+
+instance HasActype Repeat
+
+instance HasActype Progressring
+
+instance HasActype Badge
+
+instance HasActype Tooltip
+
+instance HasActype Flyout
+
+instance HasActype Menufly
+
+instance HasActype Dropdown
+
+instance HasActype Split
+
+instance HasActype Combo
+
+instance HasActype Expander
+
+instance HasActype Exphead
+
+instance HasActype Expbody
+
+instance HasActype Infobar
+
+instance HasActype Dialog
+
+instance HasActype Dialogbody
+
+instance HasActype Menubar
+
+instance HasActype Menuitem
+
+instance HasActype Nav
+
+instance HasActype Navitem
+
+instance HasActype Tabs
+
+instance HasActype Tabitem
+
+instance HasActype Listitem
+
+instance HasActype Listbox
+
+instance HasActype Gridview
+
+instance HasActype Repeater
+
+instance HasActype Itemsview
+
+instance HasActype Flip
+
+instance HasActype Pips
+
+instance HasActype Suggest
+
+instance HasActype Togglesplit
+
+instance HasActype Radiogroup
+
+instance HasActype Rating
+
+instance HasActype Selector
+
+instance HasActype Selectoritem
+
+instance HasActype Breadcrumb
+
+instance HasActype Crumb
+
+instance HasActype Teachtip
+
+instance HasActype Tree
+
+instance HasActype Treeitem
+
+instance HasActype Refresh
+
+instance HasActype Avatar
+
+instance HasActype Pager
+
+instance HasActype Splitview
+
+instance HasActype Splitpane
+
+instance HasActype Splitbody
+
+instance HasActype Titlebar
+
+instance HasActype Scrollbar
+
+instance HasActype Looping
+
+instance HasActype Datepicker
+
+instance HasActype Timepicker
+
+instance HasActype Calendar
+
+instance HasActype Colorpicker
+
+instance HasActype Colheader
+
+instance HasActype Colitem
+
+instance HasActype Commandbar
+
+instance HasActype Appbarbutton
+
+instance HasActype Appbartoggle
+
+instance HasActype Appbarsep
+
+instance HasActype Groupheader
+
+class HasAaccel c where
+  aaccel :: T.Text -> Attr c msg
+  aaccel v = prop #{const XTK_PROP_A11Y_ACCELERATOR} (VStr v)
+
+instance HasAaccel Container
+
+instance HasAaccel Text
+
+instance HasAaccel Button
+
+instance HasAaccel Toggle
+
+instance HasAaccel Checkbox
+
+instance HasAaccel Radio
+
+instance HasAaccel Switch
+
+instance HasAaccel Slider
+
+instance HasAaccel Textbox
+
+instance HasAaccel Scroll
+
+instance HasAaccel Image
+
+instance HasAaccel Progress
+
+instance HasAaccel List
+
+instance HasAaccel Tab
+
+instance HasAaccel Card
+
+instance HasAaccel Divider
+
+instance HasAaccel Canvas
+
+instance HasAaccel Password
+
+instance HasAaccel Number
+
+instance HasAaccel Link
+
+instance HasAaccel Repeat
+
+instance HasAaccel Progressring
+
+instance HasAaccel Badge
+
+instance HasAaccel Tooltip
+
+instance HasAaccel Flyout
+
+instance HasAaccel Menufly
+
+instance HasAaccel Dropdown
+
+instance HasAaccel Split
+
+instance HasAaccel Combo
+
+instance HasAaccel Expander
+
+instance HasAaccel Exphead
+
+instance HasAaccel Expbody
+
+instance HasAaccel Infobar
+
+instance HasAaccel Dialog
+
+instance HasAaccel Dialogbody
+
+instance HasAaccel Menubar
+
+instance HasAaccel Menuitem
+
+instance HasAaccel Nav
+
+instance HasAaccel Navitem
+
+instance HasAaccel Tabs
+
+instance HasAaccel Tabitem
+
+instance HasAaccel Listitem
+
+instance HasAaccel Listbox
+
+instance HasAaccel Gridview
+
+instance HasAaccel Repeater
+
+instance HasAaccel Itemsview
+
+instance HasAaccel Flip
+
+instance HasAaccel Pips
+
+instance HasAaccel Suggest
+
+instance HasAaccel Togglesplit
+
+instance HasAaccel Radiogroup
+
+instance HasAaccel Rating
+
+instance HasAaccel Selector
+
+instance HasAaccel Selectoritem
+
+instance HasAaccel Breadcrumb
+
+instance HasAaccel Crumb
+
+instance HasAaccel Teachtip
+
+instance HasAaccel Tree
+
+instance HasAaccel Treeitem
+
+instance HasAaccel Refresh
+
+instance HasAaccel Avatar
+
+instance HasAaccel Pager
+
+instance HasAaccel Splitview
+
+instance HasAaccel Splitpane
+
+instance HasAaccel Splitbody
+
+instance HasAaccel Titlebar
+
+instance HasAaccel Scrollbar
+
+instance HasAaccel Looping
+
+instance HasAaccel Datepicker
+
+instance HasAaccel Timepicker
+
+instance HasAaccel Calendar
+
+instance HasAaccel Colorpicker
+
+instance HasAaccel Colheader
+
+instance HasAaccel Colitem
+
+instance HasAaccel Commandbar
+
+instance HasAaccel Appbarbutton
+
+instance HasAaccel Appbartoggle
+
+instance HasAaccel Appbarsep
+
+instance HasAaccel Groupheader
+
+class HasAkey c where
+  akey :: T.Text -> Attr c msg
+  akey v = prop #{const XTK_PROP_A11Y_ACCESS_KEY} (VStr v)
+
+instance HasAkey Container
+
+instance HasAkey Text
+
+instance HasAkey Button
+
+instance HasAkey Toggle
+
+instance HasAkey Checkbox
+
+instance HasAkey Radio
+
+instance HasAkey Switch
+
+instance HasAkey Slider
+
+instance HasAkey Textbox
+
+instance HasAkey Scroll
+
+instance HasAkey Image
+
+instance HasAkey Progress
+
+instance HasAkey List
+
+instance HasAkey Tab
+
+instance HasAkey Card
+
+instance HasAkey Divider
+
+instance HasAkey Canvas
+
+instance HasAkey Password
+
+instance HasAkey Number
+
+instance HasAkey Link
+
+instance HasAkey Repeat
+
+instance HasAkey Progressring
+
+instance HasAkey Badge
+
+instance HasAkey Tooltip
+
+instance HasAkey Flyout
+
+instance HasAkey Menufly
+
+instance HasAkey Dropdown
+
+instance HasAkey Split
+
+instance HasAkey Combo
+
+instance HasAkey Expander
+
+instance HasAkey Exphead
+
+instance HasAkey Expbody
+
+instance HasAkey Infobar
+
+instance HasAkey Dialog
+
+instance HasAkey Dialogbody
+
+instance HasAkey Menubar
+
+instance HasAkey Menuitem
+
+instance HasAkey Nav
+
+instance HasAkey Navitem
+
+instance HasAkey Tabs
+
+instance HasAkey Tabitem
+
+instance HasAkey Listitem
+
+instance HasAkey Listbox
+
+instance HasAkey Gridview
+
+instance HasAkey Repeater
+
+instance HasAkey Itemsview
+
+instance HasAkey Flip
+
+instance HasAkey Pips
+
+instance HasAkey Suggest
+
+instance HasAkey Togglesplit
+
+instance HasAkey Radiogroup
+
+instance HasAkey Rating
+
+instance HasAkey Selector
+
+instance HasAkey Selectoritem
+
+instance HasAkey Breadcrumb
+
+instance HasAkey Crumb
+
+instance HasAkey Teachtip
+
+instance HasAkey Tree
+
+instance HasAkey Treeitem
+
+instance HasAkey Refresh
+
+instance HasAkey Avatar
+
+instance HasAkey Pager
+
+instance HasAkey Splitview
+
+instance HasAkey Splitpane
+
+instance HasAkey Splitbody
+
+instance HasAkey Titlebar
+
+instance HasAkey Scrollbar
+
+instance HasAkey Looping
+
+instance HasAkey Datepicker
+
+instance HasAkey Timepicker
+
+instance HasAkey Calendar
+
+instance HasAkey Colorpicker
+
+instance HasAkey Colheader
+
+instance HasAkey Colitem
+
+instance HasAkey Commandbar
+
+instance HasAkey Appbarbutton
+
+instance HasAkey Appbartoggle
+
+instance HasAkey Appbarsep
+
+instance HasAkey Groupheader
+
+class HasAlandmark c where
+  alandmark :: Landmark -> Attr c msg
+  alandmark v = prop #{const XTK_PROP_A11Y_LANDMARK} (VEnum (toC v))
+
+instance HasAlandmark Container
+
+instance HasAlandmark Text
+
+instance HasAlandmark Button
+
+instance HasAlandmark Toggle
+
+instance HasAlandmark Checkbox
+
+instance HasAlandmark Radio
+
+instance HasAlandmark Switch
+
+instance HasAlandmark Slider
+
+instance HasAlandmark Textbox
+
+instance HasAlandmark Scroll
+
+instance HasAlandmark Image
+
+instance HasAlandmark Progress
+
+instance HasAlandmark List
+
+instance HasAlandmark Tab
+
+instance HasAlandmark Card
+
+instance HasAlandmark Divider
+
+instance HasAlandmark Canvas
+
+instance HasAlandmark Password
+
+instance HasAlandmark Number
+
+instance HasAlandmark Link
+
+instance HasAlandmark Repeat
+
+instance HasAlandmark Progressring
+
+instance HasAlandmark Badge
+
+instance HasAlandmark Tooltip
+
+instance HasAlandmark Flyout
+
+instance HasAlandmark Menufly
+
+instance HasAlandmark Dropdown
+
+instance HasAlandmark Split
+
+instance HasAlandmark Combo
+
+instance HasAlandmark Expander
+
+instance HasAlandmark Exphead
+
+instance HasAlandmark Expbody
+
+instance HasAlandmark Infobar
+
+instance HasAlandmark Dialog
+
+instance HasAlandmark Dialogbody
+
+instance HasAlandmark Menubar
+
+instance HasAlandmark Menuitem
+
+instance HasAlandmark Nav
+
+instance HasAlandmark Navitem
+
+instance HasAlandmark Tabs
+
+instance HasAlandmark Tabitem
+
+instance HasAlandmark Listitem
+
+instance HasAlandmark Listbox
+
+instance HasAlandmark Gridview
+
+instance HasAlandmark Repeater
+
+instance HasAlandmark Itemsview
+
+instance HasAlandmark Flip
+
+instance HasAlandmark Pips
+
+instance HasAlandmark Suggest
+
+instance HasAlandmark Togglesplit
+
+instance HasAlandmark Radiogroup
+
+instance HasAlandmark Rating
+
+instance HasAlandmark Selector
+
+instance HasAlandmark Selectoritem
+
+instance HasAlandmark Breadcrumb
+
+instance HasAlandmark Crumb
+
+instance HasAlandmark Teachtip
+
+instance HasAlandmark Tree
+
+instance HasAlandmark Treeitem
+
+instance HasAlandmark Refresh
+
+instance HasAlandmark Avatar
+
+instance HasAlandmark Pager
+
+instance HasAlandmark Splitview
+
+instance HasAlandmark Splitpane
+
+instance HasAlandmark Splitbody
+
+instance HasAlandmark Titlebar
+
+instance HasAlandmark Scrollbar
+
+instance HasAlandmark Looping
+
+instance HasAlandmark Datepicker
+
+instance HasAlandmark Timepicker
+
+instance HasAlandmark Calendar
+
+instance HasAlandmark Colorpicker
+
+instance HasAlandmark Colheader
+
+instance HasAlandmark Colitem
+
+instance HasAlandmark Commandbar
+
+instance HasAlandmark Appbarbutton
+
+instance HasAlandmark Appbartoggle
+
+instance HasAlandmark Appbarsep
+
+instance HasAlandmark Groupheader
+
+class HasAlandname c where
+  alandname :: T.Text -> Attr c msg
+  alandname v = prop #{const XTK_PROP_A11Y_LANDMARK_NAME} (VStr v)
+
+instance HasAlandname Container
+
+instance HasAlandname Text
+
+instance HasAlandname Button
+
+instance HasAlandname Toggle
+
+instance HasAlandname Checkbox
+
+instance HasAlandname Radio
+
+instance HasAlandname Switch
+
+instance HasAlandname Slider
+
+instance HasAlandname Textbox
+
+instance HasAlandname Scroll
+
+instance HasAlandname Image
+
+instance HasAlandname Progress
+
+instance HasAlandname List
+
+instance HasAlandname Tab
+
+instance HasAlandname Card
+
+instance HasAlandname Divider
+
+instance HasAlandname Canvas
+
+instance HasAlandname Password
+
+instance HasAlandname Number
+
+instance HasAlandname Link
+
+instance HasAlandname Repeat
+
+instance HasAlandname Progressring
+
+instance HasAlandname Badge
+
+instance HasAlandname Tooltip
+
+instance HasAlandname Flyout
+
+instance HasAlandname Menufly
+
+instance HasAlandname Dropdown
+
+instance HasAlandname Split
+
+instance HasAlandname Combo
+
+instance HasAlandname Expander
+
+instance HasAlandname Exphead
+
+instance HasAlandname Expbody
+
+instance HasAlandname Infobar
+
+instance HasAlandname Dialog
+
+instance HasAlandname Dialogbody
+
+instance HasAlandname Menubar
+
+instance HasAlandname Menuitem
+
+instance HasAlandname Nav
+
+instance HasAlandname Navitem
+
+instance HasAlandname Tabs
+
+instance HasAlandname Tabitem
+
+instance HasAlandname Listitem
+
+instance HasAlandname Listbox
+
+instance HasAlandname Gridview
+
+instance HasAlandname Repeater
+
+instance HasAlandname Itemsview
+
+instance HasAlandname Flip
+
+instance HasAlandname Pips
+
+instance HasAlandname Suggest
+
+instance HasAlandname Togglesplit
+
+instance HasAlandname Radiogroup
+
+instance HasAlandname Rating
+
+instance HasAlandname Selector
+
+instance HasAlandname Selectoritem
+
+instance HasAlandname Breadcrumb
+
+instance HasAlandname Crumb
+
+instance HasAlandname Teachtip
+
+instance HasAlandname Tree
+
+instance HasAlandname Treeitem
+
+instance HasAlandname Refresh
+
+instance HasAlandname Avatar
+
+instance HasAlandname Pager
+
+instance HasAlandname Splitview
+
+instance HasAlandname Splitpane
+
+instance HasAlandname Splitbody
+
+instance HasAlandname Titlebar
+
+instance HasAlandname Scrollbar
+
+instance HasAlandname Looping
+
+instance HasAlandname Datepicker
+
+instance HasAlandname Timepicker
+
+instance HasAlandname Calendar
+
+instance HasAlandname Colorpicker
+
+instance HasAlandname Colheader
+
+instance HasAlandname Colitem
+
+instance HasAlandname Commandbar
+
+instance HasAlandname Appbarbutton
+
+instance HasAlandname Appbartoggle
+
+instance HasAlandname Appbarsep
+
+instance HasAlandname Groupheader
+
+class HasAlive c where
+  alive :: LiveSetting -> Attr c msg
+  alive v = prop #{const XTK_PROP_A11Y_LIVE} (VEnum (toC v))
+
+instance HasAlive Container
+
+instance HasAlive Text
+
+instance HasAlive Button
+
+instance HasAlive Toggle
+
+instance HasAlive Checkbox
+
+instance HasAlive Radio
+
+instance HasAlive Switch
+
+instance HasAlive Slider
+
+instance HasAlive Textbox
+
+instance HasAlive Scroll
+
+instance HasAlive Image
+
+instance HasAlive Progress
+
+instance HasAlive List
+
+instance HasAlive Tab
+
+instance HasAlive Card
+
+instance HasAlive Divider
+
+instance HasAlive Canvas
+
+instance HasAlive Password
+
+instance HasAlive Number
+
+instance HasAlive Link
+
+instance HasAlive Repeat
+
+instance HasAlive Progressring
+
+instance HasAlive Badge
+
+instance HasAlive Tooltip
+
+instance HasAlive Flyout
+
+instance HasAlive Menufly
+
+instance HasAlive Dropdown
+
+instance HasAlive Split
+
+instance HasAlive Combo
+
+instance HasAlive Expander
+
+instance HasAlive Exphead
+
+instance HasAlive Expbody
+
+instance HasAlive Infobar
+
+instance HasAlive Dialog
+
+instance HasAlive Dialogbody
+
+instance HasAlive Menubar
+
+instance HasAlive Menuitem
+
+instance HasAlive Nav
+
+instance HasAlive Navitem
+
+instance HasAlive Tabs
+
+instance HasAlive Tabitem
+
+instance HasAlive Listitem
+
+instance HasAlive Listbox
+
+instance HasAlive Gridview
+
+instance HasAlive Repeater
+
+instance HasAlive Itemsview
+
+instance HasAlive Flip
+
+instance HasAlive Pips
+
+instance HasAlive Suggest
+
+instance HasAlive Togglesplit
+
+instance HasAlive Radiogroup
+
+instance HasAlive Rating
+
+instance HasAlive Selector
+
+instance HasAlive Selectoritem
+
+instance HasAlive Breadcrumb
+
+instance HasAlive Crumb
+
+instance HasAlive Teachtip
+
+instance HasAlive Tree
+
+instance HasAlive Treeitem
+
+instance HasAlive Refresh
+
+instance HasAlive Avatar
+
+instance HasAlive Pager
+
+instance HasAlive Splitview
+
+instance HasAlive Splitpane
+
+instance HasAlive Splitbody
+
+instance HasAlive Titlebar
+
+instance HasAlive Scrollbar
+
+instance HasAlive Looping
+
+instance HasAlive Datepicker
+
+instance HasAlive Timepicker
+
+instance HasAlive Calendar
+
+instance HasAlive Colorpicker
+
+instance HasAlive Colheader
+
+instance HasAlive Colitem
+
+instance HasAlive Commandbar
+
+instance HasAlive Appbarbutton
+
+instance HasAlive Appbartoggle
+
+instance HasAlive Appbarsep
+
+instance HasAlive Groupheader
+
+class HasAheading c where
+  aheading :: HeadingLevel -> Attr c msg
+  aheading v = prop #{const XTK_PROP_A11Y_HEADING} (VEnum (toC v))
+
+instance HasAheading Container
+
+instance HasAheading Text
+
+instance HasAheading Button
+
+instance HasAheading Toggle
+
+instance HasAheading Checkbox
+
+instance HasAheading Radio
+
+instance HasAheading Switch
+
+instance HasAheading Slider
+
+instance HasAheading Textbox
+
+instance HasAheading Scroll
+
+instance HasAheading Image
+
+instance HasAheading Progress
+
+instance HasAheading List
+
+instance HasAheading Tab
+
+instance HasAheading Card
+
+instance HasAheading Divider
+
+instance HasAheading Canvas
+
+instance HasAheading Password
+
+instance HasAheading Number
+
+instance HasAheading Link
+
+instance HasAheading Repeat
+
+instance HasAheading Progressring
+
+instance HasAheading Badge
+
+instance HasAheading Tooltip
+
+instance HasAheading Flyout
+
+instance HasAheading Menufly
+
+instance HasAheading Dropdown
+
+instance HasAheading Split
+
+instance HasAheading Combo
+
+instance HasAheading Expander
+
+instance HasAheading Exphead
+
+instance HasAheading Expbody
+
+instance HasAheading Infobar
+
+instance HasAheading Dialog
+
+instance HasAheading Dialogbody
+
+instance HasAheading Menubar
+
+instance HasAheading Menuitem
+
+instance HasAheading Nav
+
+instance HasAheading Navitem
+
+instance HasAheading Tabs
+
+instance HasAheading Tabitem
+
+instance HasAheading Listitem
+
+instance HasAheading Listbox
+
+instance HasAheading Gridview
+
+instance HasAheading Repeater
+
+instance HasAheading Itemsview
+
+instance HasAheading Flip
+
+instance HasAheading Pips
+
+instance HasAheading Suggest
+
+instance HasAheading Togglesplit
+
+instance HasAheading Radiogroup
+
+instance HasAheading Rating
+
+instance HasAheading Selector
+
+instance HasAheading Selectoritem
+
+instance HasAheading Breadcrumb
+
+instance HasAheading Crumb
+
+instance HasAheading Teachtip
+
+instance HasAheading Tree
+
+instance HasAheading Treeitem
+
+instance HasAheading Refresh
+
+instance HasAheading Avatar
+
+instance HasAheading Pager
+
+instance HasAheading Splitview
+
+instance HasAheading Splitpane
+
+instance HasAheading Splitbody
+
+instance HasAheading Titlebar
+
+instance HasAheading Scrollbar
+
+instance HasAheading Looping
+
+instance HasAheading Datepicker
+
+instance HasAheading Timepicker
+
+instance HasAheading Calendar
+
+instance HasAheading Colorpicker
+
+instance HasAheading Colheader
+
+instance HasAheading Colitem
+
+instance HasAheading Commandbar
+
+instance HasAheading Appbarbutton
+
+instance HasAheading Appbartoggle
+
+instance HasAheading Appbarsep
+
+instance HasAheading Groupheader
+
+class HasAview c where
+  aview :: AccessView -> Attr c msg
+  aview v = prop #{const XTK_PROP_A11Y_VIEW} (VEnum (toC v))
+
+instance HasAview Container
+
+instance HasAview Text
+
+instance HasAview Button
+
+instance HasAview Toggle
+
+instance HasAview Checkbox
+
+instance HasAview Radio
+
+instance HasAview Switch
+
+instance HasAview Slider
+
+instance HasAview Textbox
+
+instance HasAview Scroll
+
+instance HasAview Image
+
+instance HasAview Progress
+
+instance HasAview List
+
+instance HasAview Tab
+
+instance HasAview Card
+
+instance HasAview Divider
+
+instance HasAview Canvas
+
+instance HasAview Password
+
+instance HasAview Number
+
+instance HasAview Link
+
+instance HasAview Repeat
+
+instance HasAview Progressring
+
+instance HasAview Badge
+
+instance HasAview Tooltip
+
+instance HasAview Flyout
+
+instance HasAview Menufly
+
+instance HasAview Dropdown
+
+instance HasAview Split
+
+instance HasAview Combo
+
+instance HasAview Expander
+
+instance HasAview Exphead
+
+instance HasAview Expbody
+
+instance HasAview Infobar
+
+instance HasAview Dialog
+
+instance HasAview Dialogbody
+
+instance HasAview Menubar
+
+instance HasAview Menuitem
+
+instance HasAview Nav
+
+instance HasAview Navitem
+
+instance HasAview Tabs
+
+instance HasAview Tabitem
+
+instance HasAview Listitem
+
+instance HasAview Listbox
+
+instance HasAview Gridview
+
+instance HasAview Repeater
+
+instance HasAview Itemsview
+
+instance HasAview Flip
+
+instance HasAview Pips
+
+instance HasAview Suggest
+
+instance HasAview Togglesplit
+
+instance HasAview Radiogroup
+
+instance HasAview Rating
+
+instance HasAview Selector
+
+instance HasAview Selectoritem
+
+instance HasAview Breadcrumb
+
+instance HasAview Crumb
+
+instance HasAview Teachtip
+
+instance HasAview Tree
+
+instance HasAview Treeitem
+
+instance HasAview Refresh
+
+instance HasAview Avatar
+
+instance HasAview Pager
+
+instance HasAview Splitview
+
+instance HasAview Splitpane
+
+instance HasAview Splitbody
+
+instance HasAview Titlebar
+
+instance HasAview Scrollbar
+
+instance HasAview Looping
+
+instance HasAview Datepicker
+
+instance HasAview Timepicker
+
+instance HasAview Calendar
+
+instance HasAview Colorpicker
+
+instance HasAview Colheader
+
+instance HasAview Colitem
+
+instance HasAview Commandbar
+
+instance HasAview Appbarbutton
+
+instance HasAview Appbartoggle
+
+instance HasAview Appbarsep
+
+instance HasAview Groupheader
+
+class HasArequired c where
+  arequired :: P.Bool -> Attr c msg
+  arequired v = prop #{const XTK_PROP_A11Y_REQUIRED} (VBool v)
+
+instance HasArequired Container
+
+instance HasArequired Text
+
+instance HasArequired Button
+
+instance HasArequired Toggle
+
+instance HasArequired Checkbox
+
+instance HasArequired Radio
+
+instance HasArequired Switch
+
+instance HasArequired Slider
+
+instance HasArequired Textbox
+
+instance HasArequired Scroll
+
+instance HasArequired Image
+
+instance HasArequired Progress
+
+instance HasArequired List
+
+instance HasArequired Tab
+
+instance HasArequired Card
+
+instance HasArequired Divider
+
+instance HasArequired Canvas
+
+instance HasArequired Password
+
+instance HasArequired Number
+
+instance HasArequired Link
+
+instance HasArequired Repeat
+
+instance HasArequired Progressring
+
+instance HasArequired Badge
+
+instance HasArequired Tooltip
+
+instance HasArequired Flyout
+
+instance HasArequired Menufly
+
+instance HasArequired Dropdown
+
+instance HasArequired Split
+
+instance HasArequired Combo
+
+instance HasArequired Expander
+
+instance HasArequired Exphead
+
+instance HasArequired Expbody
+
+instance HasArequired Infobar
+
+instance HasArequired Dialog
+
+instance HasArequired Dialogbody
+
+instance HasArequired Menubar
+
+instance HasArequired Menuitem
+
+instance HasArequired Nav
+
+instance HasArequired Navitem
+
+instance HasArequired Tabs
+
+instance HasArequired Tabitem
+
+instance HasArequired Listitem
+
+instance HasArequired Listbox
+
+instance HasArequired Gridview
+
+instance HasArequired Repeater
+
+instance HasArequired Itemsview
+
+instance HasArequired Flip
+
+instance HasArequired Pips
+
+instance HasArequired Suggest
+
+instance HasArequired Togglesplit
+
+instance HasArequired Radiogroup
+
+instance HasArequired Rating
+
+instance HasArequired Selector
+
+instance HasArequired Selectoritem
+
+instance HasArequired Breadcrumb
+
+instance HasArequired Crumb
+
+instance HasArequired Teachtip
+
+instance HasArequired Tree
+
+instance HasArequired Treeitem
+
+instance HasArequired Refresh
+
+instance HasArequired Avatar
+
+instance HasArequired Pager
+
+instance HasArequired Splitview
+
+instance HasArequired Splitpane
+
+instance HasArequired Splitbody
+
+instance HasArequired Titlebar
+
+instance HasArequired Scrollbar
+
+instance HasArequired Looping
+
+instance HasArequired Datepicker
+
+instance HasArequired Timepicker
+
+instance HasArequired Calendar
+
+instance HasArequired Colorpicker
+
+instance HasArequired Colheader
+
+instance HasArequired Colitem
+
+instance HasArequired Commandbar
+
+instance HasArequired Appbarbutton
+
+instance HasArequired Appbartoggle
+
+instance HasArequired Appbarsep
+
+instance HasArequired Groupheader
+
+class HasAvalid c where
+  avalid :: P.Bool -> Attr c msg
+  avalid v = prop #{const XTK_PROP_A11Y_DATA_VALID} (VBool v)
+
+instance HasAvalid Container
+
+instance HasAvalid Text
+
+instance HasAvalid Button
+
+instance HasAvalid Toggle
+
+instance HasAvalid Checkbox
+
+instance HasAvalid Radio
+
+instance HasAvalid Switch
+
+instance HasAvalid Slider
+
+instance HasAvalid Textbox
+
+instance HasAvalid Scroll
+
+instance HasAvalid Image
+
+instance HasAvalid Progress
+
+instance HasAvalid List
+
+instance HasAvalid Tab
+
+instance HasAvalid Card
+
+instance HasAvalid Divider
+
+instance HasAvalid Canvas
+
+instance HasAvalid Password
+
+instance HasAvalid Number
+
+instance HasAvalid Link
+
+instance HasAvalid Repeat
+
+instance HasAvalid Progressring
+
+instance HasAvalid Badge
+
+instance HasAvalid Tooltip
+
+instance HasAvalid Flyout
+
+instance HasAvalid Menufly
+
+instance HasAvalid Dropdown
+
+instance HasAvalid Split
+
+instance HasAvalid Combo
+
+instance HasAvalid Expander
+
+instance HasAvalid Exphead
+
+instance HasAvalid Expbody
+
+instance HasAvalid Infobar
+
+instance HasAvalid Dialog
+
+instance HasAvalid Dialogbody
+
+instance HasAvalid Menubar
+
+instance HasAvalid Menuitem
+
+instance HasAvalid Nav
+
+instance HasAvalid Navitem
+
+instance HasAvalid Tabs
+
+instance HasAvalid Tabitem
+
+instance HasAvalid Listitem
+
+instance HasAvalid Listbox
+
+instance HasAvalid Gridview
+
+instance HasAvalid Repeater
+
+instance HasAvalid Itemsview
+
+instance HasAvalid Flip
+
+instance HasAvalid Pips
+
+instance HasAvalid Suggest
+
+instance HasAvalid Togglesplit
+
+instance HasAvalid Radiogroup
+
+instance HasAvalid Rating
+
+instance HasAvalid Selector
+
+instance HasAvalid Selectoritem
+
+instance HasAvalid Breadcrumb
+
+instance HasAvalid Crumb
+
+instance HasAvalid Teachtip
+
+instance HasAvalid Tree
+
+instance HasAvalid Treeitem
+
+instance HasAvalid Refresh
+
+instance HasAvalid Avatar
+
+instance HasAvalid Pager
+
+instance HasAvalid Splitview
+
+instance HasAvalid Splitpane
+
+instance HasAvalid Splitbody
+
+instance HasAvalid Titlebar
+
+instance HasAvalid Scrollbar
+
+instance HasAvalid Looping
+
+instance HasAvalid Datepicker
+
+instance HasAvalid Timepicker
+
+instance HasAvalid Calendar
+
+instance HasAvalid Colorpicker
+
+instance HasAvalid Colheader
+
+instance HasAvalid Colitem
+
+instance HasAvalid Commandbar
+
+instance HasAvalid Appbarbutton
+
+instance HasAvalid Appbartoggle
+
+instance HasAvalid Appbarsep
+
+instance HasAvalid Groupheader
+
+class HasAperipheral c where
+  aperipheral :: P.Bool -> Attr c msg
+  aperipheral v = prop #{const XTK_PROP_A11Y_PERIPHERAL} (VBool v)
+
+instance HasAperipheral Container
+
+instance HasAperipheral Text
+
+instance HasAperipheral Button
+
+instance HasAperipheral Toggle
+
+instance HasAperipheral Checkbox
+
+instance HasAperipheral Radio
+
+instance HasAperipheral Switch
+
+instance HasAperipheral Slider
+
+instance HasAperipheral Textbox
+
+instance HasAperipheral Scroll
+
+instance HasAperipheral Image
+
+instance HasAperipheral Progress
+
+instance HasAperipheral List
+
+instance HasAperipheral Tab
+
+instance HasAperipheral Card
+
+instance HasAperipheral Divider
+
+instance HasAperipheral Canvas
+
+instance HasAperipheral Password
+
+instance HasAperipheral Number
+
+instance HasAperipheral Link
+
+instance HasAperipheral Repeat
+
+instance HasAperipheral Progressring
+
+instance HasAperipheral Badge
+
+instance HasAperipheral Tooltip
+
+instance HasAperipheral Flyout
+
+instance HasAperipheral Menufly
+
+instance HasAperipheral Dropdown
+
+instance HasAperipheral Split
+
+instance HasAperipheral Combo
+
+instance HasAperipheral Expander
+
+instance HasAperipheral Exphead
+
+instance HasAperipheral Expbody
+
+instance HasAperipheral Infobar
+
+instance HasAperipheral Dialog
+
+instance HasAperipheral Dialogbody
+
+instance HasAperipheral Menubar
+
+instance HasAperipheral Menuitem
+
+instance HasAperipheral Nav
+
+instance HasAperipheral Navitem
+
+instance HasAperipheral Tabs
+
+instance HasAperipheral Tabitem
+
+instance HasAperipheral Listitem
+
+instance HasAperipheral Listbox
+
+instance HasAperipheral Gridview
+
+instance HasAperipheral Repeater
+
+instance HasAperipheral Itemsview
+
+instance HasAperipheral Flip
+
+instance HasAperipheral Pips
+
+instance HasAperipheral Suggest
+
+instance HasAperipheral Togglesplit
+
+instance HasAperipheral Radiogroup
+
+instance HasAperipheral Rating
+
+instance HasAperipheral Selector
+
+instance HasAperipheral Selectoritem
+
+instance HasAperipheral Breadcrumb
+
+instance HasAperipheral Crumb
+
+instance HasAperipheral Teachtip
+
+instance HasAperipheral Tree
+
+instance HasAperipheral Treeitem
+
+instance HasAperipheral Refresh
+
+instance HasAperipheral Avatar
+
+instance HasAperipheral Pager
+
+instance HasAperipheral Splitview
+
+instance HasAperipheral Splitpane
+
+instance HasAperipheral Splitbody
+
+instance HasAperipheral Titlebar
+
+instance HasAperipheral Scrollbar
+
+instance HasAperipheral Looping
+
+instance HasAperipheral Datepicker
+
+instance HasAperipheral Timepicker
+
+instance HasAperipheral Calendar
+
+instance HasAperipheral Colorpicker
+
+instance HasAperipheral Colheader
+
+instance HasAperipheral Colitem
+
+instance HasAperipheral Commandbar
+
+instance HasAperipheral Appbarbutton
+
+instance HasAperipheral Appbartoggle
+
+instance HasAperipheral Appbarsep
+
+instance HasAperipheral Groupheader
+
+class HasAdialog c where
+  adialog :: P.Bool -> Attr c msg
+  adialog v = prop #{const XTK_PROP_A11Y_DIALOG} (VBool v)
+
+instance HasAdialog Container
+
+instance HasAdialog Text
+
+instance HasAdialog Button
+
+instance HasAdialog Toggle
+
+instance HasAdialog Checkbox
+
+instance HasAdialog Radio
+
+instance HasAdialog Switch
+
+instance HasAdialog Slider
+
+instance HasAdialog Textbox
+
+instance HasAdialog Scroll
+
+instance HasAdialog Image
+
+instance HasAdialog Progress
+
+instance HasAdialog List
+
+instance HasAdialog Tab
+
+instance HasAdialog Card
+
+instance HasAdialog Divider
+
+instance HasAdialog Canvas
+
+instance HasAdialog Password
+
+instance HasAdialog Number
+
+instance HasAdialog Link
+
+instance HasAdialog Repeat
+
+instance HasAdialog Progressring
+
+instance HasAdialog Badge
+
+instance HasAdialog Tooltip
+
+instance HasAdialog Flyout
+
+instance HasAdialog Menufly
+
+instance HasAdialog Dropdown
+
+instance HasAdialog Split
+
+instance HasAdialog Combo
+
+instance HasAdialog Expander
+
+instance HasAdialog Exphead
+
+instance HasAdialog Expbody
+
+instance HasAdialog Infobar
+
+instance HasAdialog Dialog
+
+instance HasAdialog Dialogbody
+
+instance HasAdialog Menubar
+
+instance HasAdialog Menuitem
+
+instance HasAdialog Nav
+
+instance HasAdialog Navitem
+
+instance HasAdialog Tabs
+
+instance HasAdialog Tabitem
+
+instance HasAdialog Listitem
+
+instance HasAdialog Listbox
+
+instance HasAdialog Gridview
+
+instance HasAdialog Repeater
+
+instance HasAdialog Itemsview
+
+instance HasAdialog Flip
+
+instance HasAdialog Pips
+
+instance HasAdialog Suggest
+
+instance HasAdialog Togglesplit
+
+instance HasAdialog Radiogroup
+
+instance HasAdialog Rating
+
+instance HasAdialog Selector
+
+instance HasAdialog Selectoritem
+
+instance HasAdialog Breadcrumb
+
+instance HasAdialog Crumb
+
+instance HasAdialog Teachtip
+
+instance HasAdialog Tree
+
+instance HasAdialog Treeitem
+
+instance HasAdialog Refresh
+
+instance HasAdialog Avatar
+
+instance HasAdialog Pager
+
+instance HasAdialog Splitview
+
+instance HasAdialog Splitpane
+
+instance HasAdialog Splitbody
+
+instance HasAdialog Titlebar
+
+instance HasAdialog Scrollbar
+
+instance HasAdialog Looping
+
+instance HasAdialog Datepicker
+
+instance HasAdialog Timepicker
+
+instance HasAdialog Calendar
+
+instance HasAdialog Colorpicker
+
+instance HasAdialog Colheader
+
+instance HasAdialog Colitem
+
+instance HasAdialog Commandbar
+
+instance HasAdialog Appbarbutton
+
+instance HasAdialog Appbartoggle
+
+instance HasAdialog Appbarsep
+
+instance HasAdialog Groupheader
+
+class HasApos c where
+  apos :: Int32 -> Attr c msg
+  apos v = prop #{const XTK_PROP_A11Y_POSITION} (VI32 v)
+
+instance HasApos Container
+
+instance HasApos Text
+
+instance HasApos Button
+
+instance HasApos Toggle
+
+instance HasApos Checkbox
+
+instance HasApos Radio
+
+instance HasApos Switch
+
+instance HasApos Slider
+
+instance HasApos Textbox
+
+instance HasApos Scroll
+
+instance HasApos Image
+
+instance HasApos Progress
+
+instance HasApos List
+
+instance HasApos Tab
+
+instance HasApos Card
+
+instance HasApos Divider
+
+instance HasApos Canvas
+
+instance HasApos Password
+
+instance HasApos Number
+
+instance HasApos Link
+
+instance HasApos Repeat
+
+instance HasApos Progressring
+
+instance HasApos Badge
+
+instance HasApos Tooltip
+
+instance HasApos Flyout
+
+instance HasApos Menufly
+
+instance HasApos Dropdown
+
+instance HasApos Split
+
+instance HasApos Combo
+
+instance HasApos Expander
+
+instance HasApos Exphead
+
+instance HasApos Expbody
+
+instance HasApos Infobar
+
+instance HasApos Dialog
+
+instance HasApos Dialogbody
+
+instance HasApos Menubar
+
+instance HasApos Menuitem
+
+instance HasApos Nav
+
+instance HasApos Navitem
+
+instance HasApos Tabs
+
+instance HasApos Tabitem
+
+instance HasApos Listitem
+
+instance HasApos Listbox
+
+instance HasApos Gridview
+
+instance HasApos Repeater
+
+instance HasApos Itemsview
+
+instance HasApos Flip
+
+instance HasApos Pips
+
+instance HasApos Suggest
+
+instance HasApos Togglesplit
+
+instance HasApos Radiogroup
+
+instance HasApos Rating
+
+instance HasApos Selector
+
+instance HasApos Selectoritem
+
+instance HasApos Breadcrumb
+
+instance HasApos Crumb
+
+instance HasApos Teachtip
+
+instance HasApos Tree
+
+instance HasApos Treeitem
+
+instance HasApos Refresh
+
+instance HasApos Avatar
+
+instance HasApos Pager
+
+instance HasApos Splitview
+
+instance HasApos Splitpane
+
+instance HasApos Splitbody
+
+instance HasApos Titlebar
+
+instance HasApos Scrollbar
+
+instance HasApos Looping
+
+instance HasApos Datepicker
+
+instance HasApos Timepicker
+
+instance HasApos Calendar
+
+instance HasApos Colorpicker
+
+instance HasApos Colheader
+
+instance HasApos Colitem
+
+instance HasApos Commandbar
+
+instance HasApos Appbarbutton
+
+instance HasApos Appbartoggle
+
+instance HasApos Appbarsep
+
+instance HasApos Groupheader
+
+class HasAsize c where
+  asize :: Int32 -> Attr c msg
+  asize v = prop #{const XTK_PROP_A11Y_SIZE} (VI32 v)
+
+instance HasAsize Container
+
+instance HasAsize Text
+
+instance HasAsize Button
+
+instance HasAsize Toggle
+
+instance HasAsize Checkbox
+
+instance HasAsize Radio
+
+instance HasAsize Switch
+
+instance HasAsize Slider
+
+instance HasAsize Textbox
+
+instance HasAsize Scroll
+
+instance HasAsize Image
+
+instance HasAsize Progress
+
+instance HasAsize List
+
+instance HasAsize Tab
+
+instance HasAsize Card
+
+instance HasAsize Divider
+
+instance HasAsize Canvas
+
+instance HasAsize Password
+
+instance HasAsize Number
+
+instance HasAsize Link
+
+instance HasAsize Repeat
+
+instance HasAsize Progressring
+
+instance HasAsize Badge
+
+instance HasAsize Tooltip
+
+instance HasAsize Flyout
+
+instance HasAsize Menufly
+
+instance HasAsize Dropdown
+
+instance HasAsize Split
+
+instance HasAsize Combo
+
+instance HasAsize Expander
+
+instance HasAsize Exphead
+
+instance HasAsize Expbody
+
+instance HasAsize Infobar
+
+instance HasAsize Dialog
+
+instance HasAsize Dialogbody
+
+instance HasAsize Menubar
+
+instance HasAsize Menuitem
+
+instance HasAsize Nav
+
+instance HasAsize Navitem
+
+instance HasAsize Tabs
+
+instance HasAsize Tabitem
+
+instance HasAsize Listitem
+
+instance HasAsize Listbox
+
+instance HasAsize Gridview
+
+instance HasAsize Repeater
+
+instance HasAsize Itemsview
+
+instance HasAsize Flip
+
+instance HasAsize Pips
+
+instance HasAsize Suggest
+
+instance HasAsize Togglesplit
+
+instance HasAsize Radiogroup
+
+instance HasAsize Rating
+
+instance HasAsize Selector
+
+instance HasAsize Selectoritem
+
+instance HasAsize Breadcrumb
+
+instance HasAsize Crumb
+
+instance HasAsize Teachtip
+
+instance HasAsize Tree
+
+instance HasAsize Treeitem
+
+instance HasAsize Refresh
+
+instance HasAsize Avatar
+
+instance HasAsize Pager
+
+instance HasAsize Splitview
+
+instance HasAsize Splitpane
+
+instance HasAsize Splitbody
+
+instance HasAsize Titlebar
+
+instance HasAsize Scrollbar
+
+instance HasAsize Looping
+
+instance HasAsize Datepicker
+
+instance HasAsize Timepicker
+
+instance HasAsize Calendar
+
+instance HasAsize Colorpicker
+
+instance HasAsize Colheader
+
+instance HasAsize Colitem
+
+instance HasAsize Commandbar
+
+instance HasAsize Appbarbutton
+
+instance HasAsize Appbartoggle
+
+instance HasAsize Appbarsep
+
+instance HasAsize Groupheader
+
+class HasAlevel c where
+  alevel :: Int32 -> Attr c msg
+  alevel v = prop #{const XTK_PROP_A11Y_LEVEL} (VI32 v)
+
+instance HasAlevel Container
+
+instance HasAlevel Text
+
+instance HasAlevel Button
+
+instance HasAlevel Toggle
+
+instance HasAlevel Checkbox
+
+instance HasAlevel Radio
+
+instance HasAlevel Switch
+
+instance HasAlevel Slider
+
+instance HasAlevel Textbox
+
+instance HasAlevel Scroll
+
+instance HasAlevel Image
+
+instance HasAlevel Progress
+
+instance HasAlevel List
+
+instance HasAlevel Tab
+
+instance HasAlevel Card
+
+instance HasAlevel Divider
+
+instance HasAlevel Canvas
+
+instance HasAlevel Password
+
+instance HasAlevel Number
+
+instance HasAlevel Link
+
+instance HasAlevel Repeat
+
+instance HasAlevel Progressring
+
+instance HasAlevel Badge
+
+instance HasAlevel Tooltip
+
+instance HasAlevel Flyout
+
+instance HasAlevel Menufly
+
+instance HasAlevel Dropdown
+
+instance HasAlevel Split
+
+instance HasAlevel Combo
+
+instance HasAlevel Expander
+
+instance HasAlevel Exphead
+
+instance HasAlevel Expbody
+
+instance HasAlevel Infobar
+
+instance HasAlevel Dialog
+
+instance HasAlevel Dialogbody
+
+instance HasAlevel Menubar
+
+instance HasAlevel Menuitem
+
+instance HasAlevel Nav
+
+instance HasAlevel Navitem
+
+instance HasAlevel Tabs
+
+instance HasAlevel Tabitem
+
+instance HasAlevel Listitem
+
+instance HasAlevel Listbox
+
+instance HasAlevel Gridview
+
+instance HasAlevel Repeater
+
+instance HasAlevel Itemsview
+
+instance HasAlevel Flip
+
+instance HasAlevel Pips
+
+instance HasAlevel Suggest
+
+instance HasAlevel Togglesplit
+
+instance HasAlevel Radiogroup
+
+instance HasAlevel Rating
+
+instance HasAlevel Selector
+
+instance HasAlevel Selectoritem
+
+instance HasAlevel Breadcrumb
+
+instance HasAlevel Crumb
+
+instance HasAlevel Teachtip
+
+instance HasAlevel Tree
+
+instance HasAlevel Treeitem
+
+instance HasAlevel Refresh
+
+instance HasAlevel Avatar
+
+instance HasAlevel Pager
+
+instance HasAlevel Splitview
+
+instance HasAlevel Splitpane
+
+instance HasAlevel Splitbody
+
+instance HasAlevel Titlebar
+
+instance HasAlevel Scrollbar
+
+instance HasAlevel Looping
+
+instance HasAlevel Datepicker
+
+instance HasAlevel Timepicker
+
+instance HasAlevel Calendar
+
+instance HasAlevel Colorpicker
+
+instance HasAlevel Colheader
+
+instance HasAlevel Colitem
+
+instance HasAlevel Commandbar
+
+instance HasAlevel Appbarbutton
+
+instance HasAlevel Appbartoggle
+
+instance HasAlevel Appbarsep
+
+instance HasAlevel Groupheader
+
+class HasAculture c where
+  aculture :: Int32 -> Attr c msg
+  aculture v = prop #{const XTK_PROP_A11Y_CULTURE} (VI32 v)
+
+instance HasAculture Container
+
+instance HasAculture Text
+
+instance HasAculture Button
+
+instance HasAculture Toggle
+
+instance HasAculture Checkbox
+
+instance HasAculture Radio
+
+instance HasAculture Switch
+
+instance HasAculture Slider
+
+instance HasAculture Textbox
+
+instance HasAculture Scroll
+
+instance HasAculture Image
+
+instance HasAculture Progress
+
+instance HasAculture List
+
+instance HasAculture Tab
+
+instance HasAculture Card
+
+instance HasAculture Divider
+
+instance HasAculture Canvas
+
+instance HasAculture Password
+
+instance HasAculture Number
+
+instance HasAculture Link
+
+instance HasAculture Repeat
+
+instance HasAculture Progressring
+
+instance HasAculture Badge
+
+instance HasAculture Tooltip
+
+instance HasAculture Flyout
+
+instance HasAculture Menufly
+
+instance HasAculture Dropdown
+
+instance HasAculture Split
+
+instance HasAculture Combo
+
+instance HasAculture Expander
+
+instance HasAculture Exphead
+
+instance HasAculture Expbody
+
+instance HasAculture Infobar
+
+instance HasAculture Dialog
+
+instance HasAculture Dialogbody
+
+instance HasAculture Menubar
+
+instance HasAculture Menuitem
+
+instance HasAculture Nav
+
+instance HasAculture Navitem
+
+instance HasAculture Tabs
+
+instance HasAculture Tabitem
+
+instance HasAculture Listitem
+
+instance HasAculture Listbox
+
+instance HasAculture Gridview
+
+instance HasAculture Repeater
+
+instance HasAculture Itemsview
+
+instance HasAculture Flip
+
+instance HasAculture Pips
+
+instance HasAculture Suggest
+
+instance HasAculture Togglesplit
+
+instance HasAculture Radiogroup
+
+instance HasAculture Rating
+
+instance HasAculture Selector
+
+instance HasAculture Selectoritem
+
+instance HasAculture Breadcrumb
+
+instance HasAculture Crumb
+
+instance HasAculture Teachtip
+
+instance HasAculture Tree
+
+instance HasAculture Treeitem
+
+instance HasAculture Refresh
+
+instance HasAculture Avatar
+
+instance HasAculture Pager
+
+instance HasAculture Splitview
+
+instance HasAculture Splitpane
+
+instance HasAculture Splitbody
+
+instance HasAculture Titlebar
+
+instance HasAculture Scrollbar
+
+instance HasAculture Looping
+
+instance HasAculture Datepicker
+
+instance HasAculture Timepicker
+
+instance HasAculture Calendar
+
+instance HasAculture Colorpicker
+
+instance HasAculture Colheader
+
+instance HasAculture Colitem
+
+instance HasAculture Commandbar
+
+instance HasAculture Appbarbutton
+
+instance HasAculture Appbartoggle
+
+instance HasAculture Appbarsep
+
+instance HasAculture Groupheader
+
+class HasAlabel c where
+  alabel :: T.Text -> Attr c msg
+  alabel v = prop #{const XTK_PROP_A11Y_LABELED_BY} (VStr v)
+
+instance HasAlabel Container
+
+instance HasAlabel Text
+
+instance HasAlabel Button
+
+instance HasAlabel Toggle
+
+instance HasAlabel Checkbox
+
+instance HasAlabel Radio
+
+instance HasAlabel Switch
+
+instance HasAlabel Slider
+
+instance HasAlabel Textbox
+
+instance HasAlabel Scroll
+
+instance HasAlabel Image
+
+instance HasAlabel Progress
+
+instance HasAlabel List
+
+instance HasAlabel Tab
+
+instance HasAlabel Card
+
+instance HasAlabel Divider
+
+instance HasAlabel Canvas
+
+instance HasAlabel Password
+
+instance HasAlabel Number
+
+instance HasAlabel Link
+
+instance HasAlabel Repeat
+
+instance HasAlabel Progressring
+
+instance HasAlabel Badge
+
+instance HasAlabel Tooltip
+
+instance HasAlabel Flyout
+
+instance HasAlabel Menufly
+
+instance HasAlabel Dropdown
+
+instance HasAlabel Split
+
+instance HasAlabel Combo
+
+instance HasAlabel Expander
+
+instance HasAlabel Exphead
+
+instance HasAlabel Expbody
+
+instance HasAlabel Infobar
+
+instance HasAlabel Dialog
+
+instance HasAlabel Dialogbody
+
+instance HasAlabel Menubar
+
+instance HasAlabel Menuitem
+
+instance HasAlabel Nav
+
+instance HasAlabel Navitem
+
+instance HasAlabel Tabs
+
+instance HasAlabel Tabitem
+
+instance HasAlabel Listitem
+
+instance HasAlabel Listbox
+
+instance HasAlabel Gridview
+
+instance HasAlabel Repeater
+
+instance HasAlabel Itemsview
+
+instance HasAlabel Flip
+
+instance HasAlabel Pips
+
+instance HasAlabel Suggest
+
+instance HasAlabel Togglesplit
+
+instance HasAlabel Radiogroup
+
+instance HasAlabel Rating
+
+instance HasAlabel Selector
+
+instance HasAlabel Selectoritem
+
+instance HasAlabel Breadcrumb
+
+instance HasAlabel Crumb
+
+instance HasAlabel Teachtip
+
+instance HasAlabel Tree
+
+instance HasAlabel Treeitem
+
+instance HasAlabel Refresh
+
+instance HasAlabel Avatar
+
+instance HasAlabel Pager
+
+instance HasAlabel Splitview
+
+instance HasAlabel Splitpane
+
+instance HasAlabel Splitbody
+
+instance HasAlabel Titlebar
+
+instance HasAlabel Scrollbar
+
+instance HasAlabel Looping
+
+instance HasAlabel Datepicker
+
+instance HasAlabel Timepicker
+
+instance HasAlabel Calendar
+
+instance HasAlabel Colorpicker
+
+instance HasAlabel Colheader
+
+instance HasAlabel Colitem
+
+instance HasAlabel Commandbar
+
+instance HasAlabel Appbarbutton
+
+instance HasAlabel Appbartoggle
+
+instance HasAlabel Appbarsep
+
+instance HasAlabel Groupheader
+
+class HasAdescribed c where
+  adescribed :: T.Text -> Attr c msg
+  adescribed v = prop #{const XTK_PROP_A11Y_DESCRIBED_BY} (VStr v)
+
+instance HasAdescribed Container
+
+instance HasAdescribed Text
+
+instance HasAdescribed Button
+
+instance HasAdescribed Toggle
+
+instance HasAdescribed Checkbox
+
+instance HasAdescribed Radio
+
+instance HasAdescribed Switch
+
+instance HasAdescribed Slider
+
+instance HasAdescribed Textbox
+
+instance HasAdescribed Scroll
+
+instance HasAdescribed Image
+
+instance HasAdescribed Progress
+
+instance HasAdescribed List
+
+instance HasAdescribed Tab
+
+instance HasAdescribed Card
+
+instance HasAdescribed Divider
+
+instance HasAdescribed Canvas
+
+instance HasAdescribed Password
+
+instance HasAdescribed Number
+
+instance HasAdescribed Link
+
+instance HasAdescribed Repeat
+
+instance HasAdescribed Progressring
+
+instance HasAdescribed Badge
+
+instance HasAdescribed Tooltip
+
+instance HasAdescribed Flyout
+
+instance HasAdescribed Menufly
+
+instance HasAdescribed Dropdown
+
+instance HasAdescribed Split
+
+instance HasAdescribed Combo
+
+instance HasAdescribed Expander
+
+instance HasAdescribed Exphead
+
+instance HasAdescribed Expbody
+
+instance HasAdescribed Infobar
+
+instance HasAdescribed Dialog
+
+instance HasAdescribed Dialogbody
+
+instance HasAdescribed Menubar
+
+instance HasAdescribed Menuitem
+
+instance HasAdescribed Nav
+
+instance HasAdescribed Navitem
+
+instance HasAdescribed Tabs
+
+instance HasAdescribed Tabitem
+
+instance HasAdescribed Listitem
+
+instance HasAdescribed Listbox
+
+instance HasAdescribed Gridview
+
+instance HasAdescribed Repeater
+
+instance HasAdescribed Itemsview
+
+instance HasAdescribed Flip
+
+instance HasAdescribed Pips
+
+instance HasAdescribed Suggest
+
+instance HasAdescribed Togglesplit
+
+instance HasAdescribed Radiogroup
+
+instance HasAdescribed Rating
+
+instance HasAdescribed Selector
+
+instance HasAdescribed Selectoritem
+
+instance HasAdescribed Breadcrumb
+
+instance HasAdescribed Crumb
+
+instance HasAdescribed Teachtip
+
+instance HasAdescribed Tree
+
+instance HasAdescribed Treeitem
+
+instance HasAdescribed Refresh
+
+instance HasAdescribed Avatar
+
+instance HasAdescribed Pager
+
+instance HasAdescribed Splitview
+
+instance HasAdescribed Splitpane
+
+instance HasAdescribed Splitbody
+
+instance HasAdescribed Titlebar
+
+instance HasAdescribed Scrollbar
+
+instance HasAdescribed Looping
+
+instance HasAdescribed Datepicker
+
+instance HasAdescribed Timepicker
+
+instance HasAdescribed Calendar
+
+instance HasAdescribed Colorpicker
+
+instance HasAdescribed Colheader
+
+instance HasAdescribed Colitem
+
+instance HasAdescribed Commandbar
+
+instance HasAdescribed Appbarbutton
+
+instance HasAdescribed Appbartoggle
+
+instance HasAdescribed Appbarsep
+
+instance HasAdescribed Groupheader
+
+class HasAflowsto c where
+  aflowsto :: T.Text -> Attr c msg
+  aflowsto v = prop #{const XTK_PROP_A11Y_FLOWS_TO} (VStr v)
+
+instance HasAflowsto Container
+
+instance HasAflowsto Text
+
+instance HasAflowsto Button
+
+instance HasAflowsto Toggle
+
+instance HasAflowsto Checkbox
+
+instance HasAflowsto Radio
+
+instance HasAflowsto Switch
+
+instance HasAflowsto Slider
+
+instance HasAflowsto Textbox
+
+instance HasAflowsto Scroll
+
+instance HasAflowsto Image
+
+instance HasAflowsto Progress
+
+instance HasAflowsto List
+
+instance HasAflowsto Tab
+
+instance HasAflowsto Card
+
+instance HasAflowsto Divider
+
+instance HasAflowsto Canvas
+
+instance HasAflowsto Password
+
+instance HasAflowsto Number
+
+instance HasAflowsto Link
+
+instance HasAflowsto Repeat
+
+instance HasAflowsto Progressring
+
+instance HasAflowsto Badge
+
+instance HasAflowsto Tooltip
+
+instance HasAflowsto Flyout
+
+instance HasAflowsto Menufly
+
+instance HasAflowsto Dropdown
+
+instance HasAflowsto Split
+
+instance HasAflowsto Combo
+
+instance HasAflowsto Expander
+
+instance HasAflowsto Exphead
+
+instance HasAflowsto Expbody
+
+instance HasAflowsto Infobar
+
+instance HasAflowsto Dialog
+
+instance HasAflowsto Dialogbody
+
+instance HasAflowsto Menubar
+
+instance HasAflowsto Menuitem
+
+instance HasAflowsto Nav
+
+instance HasAflowsto Navitem
+
+instance HasAflowsto Tabs
+
+instance HasAflowsto Tabitem
+
+instance HasAflowsto Listitem
+
+instance HasAflowsto Listbox
+
+instance HasAflowsto Gridview
+
+instance HasAflowsto Repeater
+
+instance HasAflowsto Itemsview
+
+instance HasAflowsto Flip
+
+instance HasAflowsto Pips
+
+instance HasAflowsto Suggest
+
+instance HasAflowsto Togglesplit
+
+instance HasAflowsto Radiogroup
+
+instance HasAflowsto Rating
+
+instance HasAflowsto Selector
+
+instance HasAflowsto Selectoritem
+
+instance HasAflowsto Breadcrumb
+
+instance HasAflowsto Crumb
+
+instance HasAflowsto Teachtip
+
+instance HasAflowsto Tree
+
+instance HasAflowsto Treeitem
+
+instance HasAflowsto Refresh
+
+instance HasAflowsto Avatar
+
+instance HasAflowsto Pager
+
+instance HasAflowsto Splitview
+
+instance HasAflowsto Splitpane
+
+instance HasAflowsto Splitbody
+
+instance HasAflowsto Titlebar
+
+instance HasAflowsto Scrollbar
+
+instance HasAflowsto Looping
+
+instance HasAflowsto Datepicker
+
+instance HasAflowsto Timepicker
+
+instance HasAflowsto Calendar
+
+instance HasAflowsto Colorpicker
+
+instance HasAflowsto Colheader
+
+instance HasAflowsto Colitem
+
+instance HasAflowsto Commandbar
+
+instance HasAflowsto Appbarbutton
+
+instance HasAflowsto Appbartoggle
+
+instance HasAflowsto Appbarsep
+
+instance HasAflowsto Groupheader
+
+class HasAflowsfrom c where
+  aflowsfrom :: T.Text -> Attr c msg
+  aflowsfrom v = prop #{const XTK_PROP_A11Y_FLOWS_FROM} (VStr v)
+
+instance HasAflowsfrom Container
+
+instance HasAflowsfrom Text
+
+instance HasAflowsfrom Button
+
+instance HasAflowsfrom Toggle
+
+instance HasAflowsfrom Checkbox
+
+instance HasAflowsfrom Radio
+
+instance HasAflowsfrom Switch
+
+instance HasAflowsfrom Slider
+
+instance HasAflowsfrom Textbox
+
+instance HasAflowsfrom Scroll
+
+instance HasAflowsfrom Image
+
+instance HasAflowsfrom Progress
+
+instance HasAflowsfrom List
+
+instance HasAflowsfrom Tab
+
+instance HasAflowsfrom Card
+
+instance HasAflowsfrom Divider
+
+instance HasAflowsfrom Canvas
+
+instance HasAflowsfrom Password
+
+instance HasAflowsfrom Number
+
+instance HasAflowsfrom Link
+
+instance HasAflowsfrom Repeat
+
+instance HasAflowsfrom Progressring
+
+instance HasAflowsfrom Badge
+
+instance HasAflowsfrom Tooltip
+
+instance HasAflowsfrom Flyout
+
+instance HasAflowsfrom Menufly
+
+instance HasAflowsfrom Dropdown
+
+instance HasAflowsfrom Split
+
+instance HasAflowsfrom Combo
+
+instance HasAflowsfrom Expander
+
+instance HasAflowsfrom Exphead
+
+instance HasAflowsfrom Expbody
+
+instance HasAflowsfrom Infobar
+
+instance HasAflowsfrom Dialog
+
+instance HasAflowsfrom Dialogbody
+
+instance HasAflowsfrom Menubar
+
+instance HasAflowsfrom Menuitem
+
+instance HasAflowsfrom Nav
+
+instance HasAflowsfrom Navitem
+
+instance HasAflowsfrom Tabs
+
+instance HasAflowsfrom Tabitem
+
+instance HasAflowsfrom Listitem
+
+instance HasAflowsfrom Listbox
+
+instance HasAflowsfrom Gridview
+
+instance HasAflowsfrom Repeater
+
+instance HasAflowsfrom Itemsview
+
+instance HasAflowsfrom Flip
+
+instance HasAflowsfrom Pips
+
+instance HasAflowsfrom Suggest
+
+instance HasAflowsfrom Togglesplit
+
+instance HasAflowsfrom Radiogroup
+
+instance HasAflowsfrom Rating
+
+instance HasAflowsfrom Selector
+
+instance HasAflowsfrom Selectoritem
+
+instance HasAflowsfrom Breadcrumb
+
+instance HasAflowsfrom Crumb
+
+instance HasAflowsfrom Teachtip
+
+instance HasAflowsfrom Tree
+
+instance HasAflowsfrom Treeitem
+
+instance HasAflowsfrom Refresh
+
+instance HasAflowsfrom Avatar
+
+instance HasAflowsfrom Pager
+
+instance HasAflowsfrom Splitview
+
+instance HasAflowsfrom Splitpane
+
+instance HasAflowsfrom Splitbody
+
+instance HasAflowsfrom Titlebar
+
+instance HasAflowsfrom Scrollbar
+
+instance HasAflowsfrom Looping
+
+instance HasAflowsfrom Datepicker
+
+instance HasAflowsfrom Timepicker
+
+instance HasAflowsfrom Calendar
+
+instance HasAflowsfrom Colorpicker
+
+instance HasAflowsfrom Colheader
+
+instance HasAflowsfrom Colitem
+
+instance HasAflowsfrom Commandbar
+
+instance HasAflowsfrom Appbarbutton
+
+instance HasAflowsfrom Appbartoggle
+
+instance HasAflowsfrom Appbarsep
+
+instance HasAflowsfrom Groupheader
+
+class HasAcontrols c where
+  acontrols :: T.Text -> Attr c msg
+  acontrols v = prop #{const XTK_PROP_A11Y_CONTROLLED} (VStr v)
+
+instance HasAcontrols Container
+
+instance HasAcontrols Text
+
+instance HasAcontrols Button
+
+instance HasAcontrols Toggle
+
+instance HasAcontrols Checkbox
+
+instance HasAcontrols Radio
+
+instance HasAcontrols Switch
+
+instance HasAcontrols Slider
+
+instance HasAcontrols Textbox
+
+instance HasAcontrols Scroll
+
+instance HasAcontrols Image
+
+instance HasAcontrols Progress
+
+instance HasAcontrols List
+
+instance HasAcontrols Tab
+
+instance HasAcontrols Card
+
+instance HasAcontrols Divider
+
+instance HasAcontrols Canvas
+
+instance HasAcontrols Password
+
+instance HasAcontrols Number
+
+instance HasAcontrols Link
+
+instance HasAcontrols Repeat
+
+instance HasAcontrols Progressring
+
+instance HasAcontrols Badge
+
+instance HasAcontrols Tooltip
+
+instance HasAcontrols Flyout
+
+instance HasAcontrols Menufly
+
+instance HasAcontrols Dropdown
+
+instance HasAcontrols Split
+
+instance HasAcontrols Combo
+
+instance HasAcontrols Expander
+
+instance HasAcontrols Exphead
+
+instance HasAcontrols Expbody
+
+instance HasAcontrols Infobar
+
+instance HasAcontrols Dialog
+
+instance HasAcontrols Dialogbody
+
+instance HasAcontrols Menubar
+
+instance HasAcontrols Menuitem
+
+instance HasAcontrols Nav
+
+instance HasAcontrols Navitem
+
+instance HasAcontrols Tabs
+
+instance HasAcontrols Tabitem
+
+instance HasAcontrols Listitem
+
+instance HasAcontrols Listbox
+
+instance HasAcontrols Gridview
+
+instance HasAcontrols Repeater
+
+instance HasAcontrols Itemsview
+
+instance HasAcontrols Flip
+
+instance HasAcontrols Pips
+
+instance HasAcontrols Suggest
+
+instance HasAcontrols Togglesplit
+
+instance HasAcontrols Radiogroup
+
+instance HasAcontrols Rating
+
+instance HasAcontrols Selector
+
+instance HasAcontrols Selectoritem
+
+instance HasAcontrols Breadcrumb
+
+instance HasAcontrols Crumb
+
+instance HasAcontrols Teachtip
+
+instance HasAcontrols Tree
+
+instance HasAcontrols Treeitem
+
+instance HasAcontrols Refresh
+
+instance HasAcontrols Avatar
+
+instance HasAcontrols Pager
+
+instance HasAcontrols Splitview
+
+instance HasAcontrols Splitpane
+
+instance HasAcontrols Splitbody
+
+instance HasAcontrols Titlebar
+
+instance HasAcontrols Scrollbar
+
+instance HasAcontrols Looping
+
+instance HasAcontrols Datepicker
+
+instance HasAcontrols Timepicker
+
+instance HasAcontrols Calendar
+
+instance HasAcontrols Colorpicker
+
+instance HasAcontrols Colheader
+
+instance HasAcontrols Colitem
+
+instance HasAcontrols Commandbar
+
+instance HasAcontrols Appbarbutton
+
+instance HasAcontrols Appbartoggle
+
+instance HasAcontrols Appbarsep
+
+instance HasAcontrols Groupheader
 
 class HasDir c where
   dir :: StackDirection -> Attr c msg
@@ -3026,6 +7410,64 @@ instance HasClose Dialog
 
 instance HasClose Teachtip
 
+class HasDefault_button c where
+  default_button :: DialogButton -> Attr c msg
+  default_button v = prop #{const XTK_PROP_DIALOG_DEFAULT_BUTTON} (VEnum (toC v))
+
+instance HasDefault_button Dialog
+
+class HasDisplay c where
+  type DisplayV c
+  display :: DisplayV c -> Attr c msg
+
+instance HasDisplay Nav where
+  type DisplayV Nav = NavPaneMode
+  display v = prop #{const XTK_PROP_DISPLAY_MODE} (VEnum (toC v))
+
+instance HasDisplay Pager where
+  type DisplayV Pager = PagerDisplayMode
+  display v = prop #{const XTK_PROP_DISPLAY_MODE} (VEnum (toC v))
+
+instance HasDisplay Splitview where
+  type DisplayV Splitview = SplitViewDisplayMode
+  display v = prop #{const XTK_PROP_DISPLAY_MODE} (VEnum (toC v))
+
+class HasSettings_visible c where
+  settings_visible :: P.Bool -> Attr c msg
+  settings_visible v = prop #{const XTK_PROP_SETTINGS_VISIBLE} (VBool v)
+
+instance HasSettings_visible Nav
+
+class HasPane_title c where
+  pane_title :: T.Text -> Attr c msg
+  pane_title v = prop #{const XTK_PROP_PANE_TITLE} (VStr v)
+
+instance HasPane_title Nav
+
+class HasAlways_show_header c where
+  always_show_header :: P.Bool -> Attr c msg
+  always_show_header v = prop #{const XTK_PROP_ALWAYS_SHOW_HEADER} (VBool v)
+
+instance HasAlways_show_header Nav
+
+class HasBack_button c where
+  back_button :: NavBackButton -> Attr c msg
+  back_button v = prop #{const XTK_PROP_NAV_BACK_BUTTON} (VEnum (toC v))
+
+instance HasBack_button Nav
+
+class HasBack_enabled c where
+  back_enabled :: P.Bool -> Attr c msg
+  back_enabled v = prop #{const XTK_PROP_NAV_BACK_ENABLED} (VBool v)
+
+instance HasBack_enabled Nav
+
+class HasOnBackrequested c where
+  onBackrequested :: msg -> Attr c msg
+  onBackrequested m = on #{const XTK_EVENT_BACK_REQUESTED} (HValue m)
+
+instance HasOnBackrequested Nav
+
 class HasInvoked c where
   invoked :: P.Bool -> Attr c msg
   invoked v = prop #{const XTK_PROP_ITEM_INVOKED_ENABLED} (VBool v)
@@ -3178,23 +7620,23 @@ class HasBadgevalue c where
 
 instance HasBadgevalue Avatar
 
+class HasBadgeimage c where
+  badgeimage :: Word64 -> Attr c msg
+  badgeimage v = prop #{const XTK_PROP_BADGE_IMAGE_SOURCE} (VRes v)
+
+instance HasBadgeimage Avatar
+
+class HasBadgetext c where
+  badgetext :: T.Text -> Attr c msg
+  badgetext v = prop #{const XTK_PROP_BADGE_TEXT} (VStr v)
+
+instance HasBadgetext Avatar
+
 class HasGroup c where
   group :: P.Bool -> Attr c msg
   group v = prop #{const XTK_PROP_IS_GROUP} (VBool v)
 
 instance HasGroup Avatar
-
-class HasDisplay c where
-  type DisplayV c
-  display :: DisplayV c -> Attr c msg
-
-instance HasDisplay Pager where
-  type DisplayV Pager = PagerDisplayMode
-  display v = prop #{const XTK_PROP_DISPLAY_MODE} (VEnum (toC v))
-
-instance HasDisplay Splitview where
-  type DisplayV Splitview = SplitViewDisplayMode
-  display v = prop #{const XTK_PROP_DISPLAY_MODE} (VEnum (toC v))
 
 class HasPrev c where
   prev :: PagerButtonVis -> Attr c msg
@@ -3226,6 +7668,12 @@ class HasSuffix c where
 
 instance HasSuffix Pager
 
+class HasHideends c where
+  hideends :: P.Bool -> Attr c msg
+  hideends v = prop #{const XTK_PROP_HIDE_ENDS} (VBool v)
+
+instance HasHideends Pager
+
 class HasOpenlen c where
   openlen :: P.Float -> Attr c msg
   openlen v = prop #{const XTK_PROP_OPEN_PANE_LENGTH} (VF32 v)
@@ -3237,6 +7685,14 @@ class HasCompactlen c where
   compactlen v = prop #{const XTK_PROP_COMPACT_PANE_LENGTH} (VF32 v)
 
 instance HasCompactlen Splitview
+
+class HasOnOpen c where
+  onOpen :: (P.Bool -> msg) -> Attr c msg
+  onOpen f = on #{const XTK_EVENT_OPEN} (HBool f)
+
+instance HasOnOpen Splitview
+
+instance HasOnOpen Commandbar
 
 class HasShowback c where
   showback :: P.Bool -> Attr c msg
@@ -3450,12 +7906,6 @@ class HasDynamic c where
 
 instance HasDynamic Commandbar
 
-class HasOnOpen c where
-  onOpen :: (P.Bool -> msg) -> Attr c msg
-  onOpen f = on #{const XTK_EVENT_OPEN} (HBool f)
-
-instance HasOnOpen Commandbar
-
 class HasLabelpos c where
   labelpos :: ElementLabel -> Attr c msg
   labelpos v = prop #{const XTK_PROP_LABEL_POSITION} (VEnum (toC v))
@@ -3481,6 +7931,12 @@ instance HasOrder Appbarbutton
 instance HasOrder Appbartoggle
 
 instance HasOrder Appbarsep
+
+class HasSlot c where
+  slot :: NavSlot -> Attr c msg
+  slot v = prop #{const XTK_PROP_NAV_SLOT} (VEnum (toC v))
+
+instance HasSlot Navslot
 
 class HasVirtualItems c where
   virtualItems :: P.Int -> (P.Int -> El msg) -> Attr c msg

@@ -62,6 +62,17 @@ instance XEnum FlexWrap where
   toC FlexWrapNoWrap = #{const XENT_FLEX_NO_WRAP}
   toC FlexWrapWrap = #{const XENT_FLEX_WRAP}
 
+data AccessView
+  = AccessViewContent
+  | AccessViewControl
+  | AccessViewRaw
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum AccessView where
+  toC AccessViewContent = #{const XTK_ACCESS_VIEW_CONTENT}
+  toC AccessViewControl = #{const XTK_ACCESS_VIEW_CONTROL}
+  toC AccessViewRaw = #{const XTK_ACCESS_VIEW_RAW}
+
 data AppBarMode
   = AppBarModeCompact
   | AppBarModeMinimal
@@ -119,6 +130,19 @@ instance XEnum Clock where
   toC ClockH12 = #{const XTK_CLOCK_12H}
   toC ClockH24 = #{const XTK_CLOCK_24H}
 
+data DialogButton
+  = DialogButtonNone
+  | DialogButtonPrimary
+  | DialogButtonSecondary
+  | DialogButtonClose
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum DialogButton where
+  toC DialogButtonNone = #{const XTK_DIALOG_BUTTON_NONE}
+  toC DialogButtonPrimary = #{const XTK_DIALOG_BUTTON_PRIMARY}
+  toC DialogButtonSecondary = #{const XTK_DIALOG_BUTTON_SECONDARY}
+  toC DialogButtonClose = #{const XTK_DIALOG_BUTTON_CLOSE}
+
 data DropOperation
   = DropOperationNone
   | DropOperationCopy
@@ -166,6 +190,31 @@ instance XEnum FontWeight where
   toC FontWeightExtraBold = #{const XTK_FONT_EXTRA_BOLD}
   toC FontWeightBlack = #{const XTK_FONT_BLACK}
 
+data HeadingLevel
+  = HeadingLevelNone
+  | HeadingLevelLevel1
+  | HeadingLevelLevel2
+  | HeadingLevelLevel3
+  | HeadingLevelLevel4
+  | HeadingLevelLevel5
+  | HeadingLevelLevel6
+  | HeadingLevelLevel7
+  | HeadingLevelLevel8
+  | HeadingLevelLevel9
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum HeadingLevel where
+  toC HeadingLevelNone = #{const XTK_HEADING_NONE}
+  toC HeadingLevelLevel1 = #{const XTK_HEADING_LEVEL1}
+  toC HeadingLevelLevel2 = #{const XTK_HEADING_LEVEL2}
+  toC HeadingLevelLevel3 = #{const XTK_HEADING_LEVEL3}
+  toC HeadingLevelLevel4 = #{const XTK_HEADING_LEVEL4}
+  toC HeadingLevelLevel5 = #{const XTK_HEADING_LEVEL5}
+  toC HeadingLevelLevel6 = #{const XTK_HEADING_LEVEL6}
+  toC HeadingLevelLevel7 = #{const XTK_HEADING_LEVEL7}
+  toC HeadingLevelLevel8 = #{const XTK_HEADING_LEVEL8}
+  toC HeadingLevelLevel9 = #{const XTK_HEADING_LEVEL9}
+
 data ImageStretch
   = ImageStretchNone
   | ImageStretchFill
@@ -203,6 +252,23 @@ instance XEnum LabelPosition where
   toC LabelPositionRight = #{const XTK_LABEL_RIGHT}
   toC LabelPositionCollapsed = #{const XTK_LABEL_COLLAPSED}
 
+data Landmark
+  = LandmarkNone
+  | LandmarkCustom
+  | LandmarkForm
+  | LandmarkMain
+  | LandmarkNavigation
+  | LandmarkSearch
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum Landmark where
+  toC LandmarkNone = #{const XTK_LANDMARK_NONE}
+  toC LandmarkCustom = #{const XTK_LANDMARK_CUSTOM}
+  toC LandmarkForm = #{const XTK_LANDMARK_FORM}
+  toC LandmarkMain = #{const XTK_LANDMARK_MAIN}
+  toC LandmarkNavigation = #{const XTK_LANDMARK_NAVIGATION}
+  toC LandmarkSearch = #{const XTK_LANDMARK_SEARCH}
+
 data ListSelMode
   = ListSelModeSingle
   | ListSelModeNone
@@ -216,12 +282,35 @@ instance XEnum ListSelMode where
   toC ListSelModeMultiple = #{const XTK_LIST_SELECT_MULTIPLE}
   toC ListSelModeExtended = #{const XTK_LIST_SELECT_EXTENDED}
 
+data LiveSetting
+  = LiveSettingOff
+  | LiveSettingPolite
+  | LiveSettingAssertive
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum LiveSetting where
+  toC LiveSettingOff = #{const XTK_LIVE_OFF}
+  toC LiveSettingPolite = #{const XTK_LIVE_POLITE}
+  toC LiveSettingAssertive = #{const XTK_LIVE_ASSERTIVE}
+
+data NavBackButton
+  = NavBackButtonAuto
+  | NavBackButtonVisible
+  | NavBackButtonCollapsed
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum NavBackButton where
+  toC NavBackButtonAuto = #{const XTK_NAV_BACK_AUTO}
+  toC NavBackButtonVisible = #{const XTK_NAV_BACK_VISIBLE}
+  toC NavBackButtonCollapsed = #{const XTK_NAV_BACK_COLLAPSED}
+
 data NavKind
   = NavKindItem
   | NavKindHeader
   | NavKindSeparator
   | NavKindFooter
   | NavKindChild
+  | NavKindFooterHeader
   deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
 
 instance XEnum NavKind where
@@ -230,6 +319,41 @@ instance XEnum NavKind where
   toC NavKindSeparator = #{const XTK_NAV_SEPARATOR}
   toC NavKindFooter = #{const XTK_NAV_FOOTER}
   toC NavKindChild = #{const XTK_NAV_CHILD}
+  toC NavKindFooterHeader = #{const XTK_NAV_FOOTER_HEADER}
+
+data NavPaneMode
+  = NavPaneModeAuto
+  | NavPaneModeLeft
+  | NavPaneModeTop
+  | NavPaneModeLeftCompact
+  | NavPaneModeLeftMinimal
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum NavPaneMode where
+  toC NavPaneModeAuto = #{const XTK_NAV_PANE_AUTO}
+  toC NavPaneModeLeft = #{const XTK_NAV_PANE_LEFT}
+  toC NavPaneModeTop = #{const XTK_NAV_PANE_TOP}
+  toC NavPaneModeLeftCompact = #{const XTK_NAV_PANE_LEFT_COMPACT}
+  toC NavPaneModeLeftMinimal = #{const XTK_NAV_PANE_LEFT_MINIMAL}
+
+data NavSlot
+  = NavSlotContent
+  | NavSlotHeader
+  | NavSlotCustom
+  | NavSlotFooter
+  | NavSlotSearch
+  | NavSlotPageHeader
+  | NavSlotContentOverlay
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum NavSlot where
+  toC NavSlotContent = #{const XTK_NAV_SLOT_CONTENT}
+  toC NavSlotHeader = #{const XTK_NAV_SLOT_HEADER}
+  toC NavSlotCustom = #{const XTK_NAV_SLOT_CUSTOM}
+  toC NavSlotFooter = #{const XTK_NAV_SLOT_FOOTER}
+  toC NavSlotSearch = #{const XTK_NAV_SLOT_SEARCH}
+  toC NavSlotPageHeader = #{const XTK_NAV_SLOT_PAGE_HEADER}
+  toC NavSlotContentOverlay = #{const XTK_NAV_SLOT_CONTENT_OVERLAY}
 
 data OverflowButton
   = OverflowButtonAuto
@@ -243,28 +367,28 @@ instance XEnum OverflowButton where
   toC OverflowButtonCollapsed = #{const XTK_OVERFLOW_BUTTON_COLLAPSED}
 
 data PagerButtonVis
-  = PagerButtonVisAuto
-  | PagerButtonVisAlways
-  | PagerButtonVisHiddenEdge
-  | PagerButtonVisNone
+  = PagerButtonVisVisible
+  | PagerButtonVisHiddenOnEdge
+  | PagerButtonVisHidden
   deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
 
 instance XEnum PagerButtonVis where
-  toC PagerButtonVisAuto = #{const XTK_PAGER_BUTTON_AUTO}
-  toC PagerButtonVisAlways = #{const XTK_PAGER_BUTTON_ALWAYS}
-  toC PagerButtonVisHiddenEdge = #{const XTK_PAGER_BUTTON_HIDDEN_EDGE}
-  toC PagerButtonVisNone = #{const XTK_PAGER_BUTTON_NONE}
+  toC PagerButtonVisVisible = #{const XTK_PAGER_BUTTON_VISIBLE}
+  toC PagerButtonVisHiddenOnEdge = #{const XTK_PAGER_BUTTON_HIDDEN_ON_EDGE}
+  toC PagerButtonVisHidden = #{const XTK_PAGER_BUTTON_HIDDEN}
 
 data PagerDisplayMode
   = PagerDisplayModeAuto
-  | PagerDisplayModeNumberPanel
-  | PagerDisplayModeNumberText
+  | PagerDisplayModeComboBox
+  | PagerDisplayModeNumberBox
+  | PagerDisplayModeButtonPanel
   deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
 
 instance XEnum PagerDisplayMode where
   toC PagerDisplayModeAuto = #{const XTK_PAGER_DISPLAY_AUTO}
-  toC PagerDisplayModeNumberPanel = #{const XTK_PAGER_DISPLAY_NUMBER_PANEL}
-  toC PagerDisplayModeNumberText = #{const XTK_PAGER_DISPLAY_NUMBER_TEXT}
+  toC PagerDisplayModeComboBox = #{const XTK_PAGER_DISPLAY_COMBO_BOX}
+  toC PagerDisplayModeNumberBox = #{const XTK_PAGER_DISPLAY_NUMBER_BOX}
+  toC PagerDisplayModeButtonPanel = #{const XTK_PAGER_DISPLAY_BUTTON_PANEL}
 
 data PipsNavVis
   = PipsNavVisCollapsed
@@ -857,3 +981,8 @@ data Groupheader
 
 groupheader :: [Attr Groupheader msg] -> [El msg] -> El msg
 groupheader = element #{const XTK_CTRL_GROUPHEADER}
+
+data Navslot
+
+navslot :: [Attr Navslot msg] -> [El msg] -> El msg
+navslot = element #{const XTK_CTRL_NAVSLOT}
