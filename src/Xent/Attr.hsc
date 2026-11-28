@@ -176,6 +176,10 @@ instance HasW Groupheader
 
 instance HasW Navslot
 
+instance HasW Frame
+
+instance HasW Fonticon
+
 class HasH c where
   h :: P.Float -> Attr c msg
   h v = prop #{const XTK_PROP_HEIGHT} (VF32 v)
@@ -337,6 +341,10 @@ instance HasH Appbarsep
 instance HasH Groupheader
 
 instance HasH Navslot
+
+instance HasH Frame
+
+instance HasH Fonticon
 
 class HasGrow c where
   grow :: P.Float -> Attr c msg
@@ -500,6 +508,10 @@ instance HasGrow Groupheader
 
 instance HasGrow Navslot
 
+instance HasGrow Frame
+
+instance HasGrow Fonticon
+
 class HasShrink c where
   shrink :: P.Float -> Attr c msg
   shrink v = prop #{const XTK_PROP_SHRINK} (VF32 v)
@@ -547,6 +559,8 @@ instance HasShrink Colheader
 instance HasShrink Groupheader
 
 instance HasShrink Navslot
+
+instance HasShrink Frame
 
 class HasSelf c where
   self :: FlexAlign -> Attr c msg
@@ -710,6 +724,10 @@ instance HasSelf Groupheader
 
 instance HasSelf Navslot
 
+instance HasSelf Frame
+
+instance HasSelf Fonticon
+
 class HasMl c where
   ml :: P.Float -> Attr c msg
   ml v = prop #{const XTK_PROP_MARGIN_LEFT} (VF32 v)
@@ -869,6 +887,8 @@ instance HasMl Appbartoggle
 instance HasMl Appbarsep
 
 instance HasMl Groupheader
+
+instance HasMl Fonticon
 
 class HasMt c where
   mt :: P.Float -> Attr c msg
@@ -1030,6 +1050,8 @@ instance HasMt Appbarsep
 
 instance HasMt Groupheader
 
+instance HasMt Fonticon
+
 class HasMr c where
   mr :: P.Float -> Attr c msg
   mr v = prop #{const XTK_PROP_MARGIN_RIGHT} (VF32 v)
@@ -1190,6 +1212,8 @@ instance HasMr Appbarsep
 
 instance HasMr Groupheader
 
+instance HasMr Fonticon
+
 class HasMb c where
   mb :: P.Float -> Attr c msg
   mb v = prop #{const XTK_PROP_MARGIN_BOTTOM} (VF32 v)
@@ -1349,6 +1373,8 @@ instance HasMb Appbartoggle
 instance HasMb Appbarsep
 
 instance HasMb Groupheader
+
+instance HasMb Fonticon
 
 class HasTip c where
   tip :: T.Text -> Attr c msg
@@ -1512,6 +1538,8 @@ instance HasTip Appbarsep
 
 instance HasTip Groupheader
 
+instance HasTip Fonticon
+
 class HasAname c where
   aname :: T.Text -> Attr c msg
   aname v = prop #{const XTK_PROP_A11Y_NAME} (VStr v)
@@ -1673,6 +1701,8 @@ instance HasAname Appbartoggle
 instance HasAname Appbarsep
 
 instance HasAname Groupheader
+
+instance HasAname Fonticon
 
 class HasAid c where
   aid :: T.Text -> Attr c msg
@@ -1836,6 +1866,8 @@ instance HasAid Appbarsep
 
 instance HasAid Groupheader
 
+instance HasAid Fonticon
+
 class HasAhelp c where
   ahelp :: T.Text -> Attr c msg
   ahelp v = prop #{const XTK_PROP_A11Y_HELP} (VStr v)
@@ -1997,6 +2029,8 @@ instance HasAhelp Appbartoggle
 instance HasAhelp Appbarsep
 
 instance HasAhelp Groupheader
+
+instance HasAhelp Fonticon
 
 class HasAdesc c where
   adesc :: T.Text -> Attr c msg
@@ -2160,6 +2194,8 @@ instance HasAdesc Appbarsep
 
 instance HasAdesc Groupheader
 
+instance HasAdesc Fonticon
+
 class HasAstatus c where
   astatus :: T.Text -> Attr c msg
   astatus v = prop #{const XTK_PROP_A11Y_ITEM_STATUS} (VStr v)
@@ -2321,6 +2357,8 @@ instance HasAstatus Appbartoggle
 instance HasAstatus Appbarsep
 
 instance HasAstatus Groupheader
+
+instance HasAstatus Fonticon
 
 class HasAitem c where
   aitem :: T.Text -> Attr c msg
@@ -2484,6 +2522,8 @@ instance HasAitem Appbarsep
 
 instance HasAitem Groupheader
 
+instance HasAitem Fonticon
+
 class HasActype c where
   actype :: T.Text -> Attr c msg
   actype v = prop #{const XTK_PROP_A11Y_CONTROL_TYPE} (VStr v)
@@ -2645,6 +2685,8 @@ instance HasActype Appbartoggle
 instance HasActype Appbarsep
 
 instance HasActype Groupheader
+
+instance HasActype Fonticon
 
 class HasAaccel c where
   aaccel :: T.Text -> Attr c msg
@@ -2808,6 +2850,8 @@ instance HasAaccel Appbarsep
 
 instance HasAaccel Groupheader
 
+instance HasAaccel Fonticon
+
 class HasAkey c where
   akey :: T.Text -> Attr c msg
   akey v = prop #{const XTK_PROP_A11Y_ACCESS_KEY} (VStr v)
@@ -2969,6 +3013,8 @@ instance HasAkey Appbartoggle
 instance HasAkey Appbarsep
 
 instance HasAkey Groupheader
+
+instance HasAkey Fonticon
 
 class HasAlandmark c where
   alandmark :: Landmark -> Attr c msg
@@ -3132,6 +3178,8 @@ instance HasAlandmark Appbarsep
 
 instance HasAlandmark Groupheader
 
+instance HasAlandmark Fonticon
+
 class HasAlandname c where
   alandname :: T.Text -> Attr c msg
   alandname v = prop #{const XTK_PROP_A11Y_LANDMARK_NAME} (VStr v)
@@ -3293,6 +3341,8 @@ instance HasAlandname Appbartoggle
 instance HasAlandname Appbarsep
 
 instance HasAlandname Groupheader
+
+instance HasAlandname Fonticon
 
 class HasAlive c where
   alive :: LiveSetting -> Attr c msg
@@ -3456,6 +3506,8 @@ instance HasAlive Appbarsep
 
 instance HasAlive Groupheader
 
+instance HasAlive Fonticon
+
 class HasAheading c where
   aheading :: HeadingLevel -> Attr c msg
   aheading v = prop #{const XTK_PROP_A11Y_HEADING} (VEnum (toC v))
@@ -3617,6 +3669,8 @@ instance HasAheading Appbartoggle
 instance HasAheading Appbarsep
 
 instance HasAheading Groupheader
+
+instance HasAheading Fonticon
 
 class HasAview c where
   aview :: AccessView -> Attr c msg
@@ -3780,6 +3834,8 @@ instance HasAview Appbarsep
 
 instance HasAview Groupheader
 
+instance HasAview Fonticon
+
 class HasArequired c where
   arequired :: P.Bool -> Attr c msg
   arequired v = prop #{const XTK_PROP_A11Y_REQUIRED} (VBool v)
@@ -3941,6 +3997,8 @@ instance HasArequired Appbartoggle
 instance HasArequired Appbarsep
 
 instance HasArequired Groupheader
+
+instance HasArequired Fonticon
 
 class HasAvalid c where
   avalid :: P.Bool -> Attr c msg
@@ -4104,6 +4162,8 @@ instance HasAvalid Appbarsep
 
 instance HasAvalid Groupheader
 
+instance HasAvalid Fonticon
+
 class HasAperipheral c where
   aperipheral :: P.Bool -> Attr c msg
   aperipheral v = prop #{const XTK_PROP_A11Y_PERIPHERAL} (VBool v)
@@ -4265,6 +4325,8 @@ instance HasAperipheral Appbartoggle
 instance HasAperipheral Appbarsep
 
 instance HasAperipheral Groupheader
+
+instance HasAperipheral Fonticon
 
 class HasAdialog c where
   adialog :: P.Bool -> Attr c msg
@@ -4428,6 +4490,8 @@ instance HasAdialog Appbarsep
 
 instance HasAdialog Groupheader
 
+instance HasAdialog Fonticon
+
 class HasApos c where
   apos :: Int32 -> Attr c msg
   apos v = prop #{const XTK_PROP_A11Y_POSITION} (VI32 v)
@@ -4589,6 +4653,8 @@ instance HasApos Appbartoggle
 instance HasApos Appbarsep
 
 instance HasApos Groupheader
+
+instance HasApos Fonticon
 
 class HasAsize c where
   asize :: Int32 -> Attr c msg
@@ -4752,6 +4818,8 @@ instance HasAsize Appbarsep
 
 instance HasAsize Groupheader
 
+instance HasAsize Fonticon
+
 class HasAlevel c where
   alevel :: Int32 -> Attr c msg
   alevel v = prop #{const XTK_PROP_A11Y_LEVEL} (VI32 v)
@@ -4913,6 +4981,8 @@ instance HasAlevel Appbartoggle
 instance HasAlevel Appbarsep
 
 instance HasAlevel Groupheader
+
+instance HasAlevel Fonticon
 
 class HasAculture c where
   aculture :: Int32 -> Attr c msg
@@ -5076,6 +5146,8 @@ instance HasAculture Appbarsep
 
 instance HasAculture Groupheader
 
+instance HasAculture Fonticon
+
 class HasAlabel c where
   alabel :: T.Text -> Attr c msg
   alabel v = prop #{const XTK_PROP_A11Y_LABELED_BY} (VStr v)
@@ -5237,6 +5309,8 @@ instance HasAlabel Appbartoggle
 instance HasAlabel Appbarsep
 
 instance HasAlabel Groupheader
+
+instance HasAlabel Fonticon
 
 class HasAdescribed c where
   adescribed :: T.Text -> Attr c msg
@@ -5400,6 +5474,8 @@ instance HasAdescribed Appbarsep
 
 instance HasAdescribed Groupheader
 
+instance HasAdescribed Fonticon
+
 class HasAflowsto c where
   aflowsto :: T.Text -> Attr c msg
   aflowsto v = prop #{const XTK_PROP_A11Y_FLOWS_TO} (VStr v)
@@ -5561,6 +5637,8 @@ instance HasAflowsto Appbartoggle
 instance HasAflowsto Appbarsep
 
 instance HasAflowsto Groupheader
+
+instance HasAflowsto Fonticon
 
 class HasAflowsfrom c where
   aflowsfrom :: T.Text -> Attr c msg
@@ -5724,6 +5802,8 @@ instance HasAflowsfrom Appbarsep
 
 instance HasAflowsfrom Groupheader
 
+instance HasAflowsfrom Fonticon
+
 class HasAcontrols c where
   acontrols :: T.Text -> Attr c msg
   acontrols v = prop #{const XTK_PROP_A11Y_CONTROLLED} (VStr v)
@@ -5885,6 +5965,8 @@ instance HasAcontrols Appbartoggle
 instance HasAcontrols Appbarsep
 
 instance HasAcontrols Groupheader
+
+instance HasAcontrols Fonticon
 
 class HasDir c where
   dir :: StackDirection -> Attr c msg
@@ -6342,11 +6424,15 @@ class HasFontsize c where
 
 instance HasFontsize Text
 
+instance HasFontsize Fonticon
+
 class HasFontweight c where
   fontweight :: FontWeight -> Attr c msg
   fontweight v = prop #{const XTK_PROP_FONT_WEIGHT} (VEnum (toC v))
 
 instance HasFontweight Text
+
+instance HasFontweight Fonticon
 
 class HasTextalign c where
   textalign :: TextAlign -> Attr c msg
@@ -6359,6 +6445,8 @@ class HasFg c where
   fg v = prop #{const XTK_PROP_FOREGROUND} (VColor v)
 
 instance HasFg Text
+
+instance HasFg Fonticon
 
 class HasMaxlines c where
   maxlines :: Int32 -> Attr c msg
@@ -6383,6 +6471,14 @@ class HasSelectable c where
   selectable v = prop #{const XTK_PROP_SELECTABLE} (VBool v)
 
 instance HasSelectable Text
+
+class HasFontfamily c where
+  fontfamily :: T.Text -> Attr c msg
+  fontfamily v = prop #{const XTK_PROP_FONT_FAMILY} (VStr v)
+
+instance HasFontfamily Text
+
+instance HasFontfamily Fonticon
 
 class HasEnabled c where
   enabled :: P.Bool -> Attr c msg
@@ -7937,6 +8033,36 @@ class HasSlot c where
   slot v = prop #{const XTK_PROP_NAV_SLOT} (VEnum (toC v))
 
 instance HasSlot Navslot
+
+class HasTransition c where
+  transition :: NavTransitionKind -> Attr c msg
+  transition v = prop #{const XTK_PROP_FRAME_TRANSITION} (VEnum (toC v))
+
+instance HasTransition Frame
+
+class HasIs_back c where
+  is_back :: P.Bool -> Attr c msg
+  is_back v = prop #{const XTK_PROP_FRAME_BACK} (VBool v)
+
+instance HasIs_back Frame
+
+class HasPage_key c where
+  page_key :: Int32 -> Attr c msg
+  page_key v = prop #{const XTK_PROP_FRAME_PAGE_KEY} (VI32 v)
+
+instance HasPage_key Frame
+
+class HasGlyph c where
+  glyph :: T.Text -> Attr c msg
+  glyph v = prop #{const XTK_PROP_ICON} (VStr v)
+
+instance HasGlyph Fonticon
+
+class HasMirrorrtl c where
+  mirrorrtl :: P.Bool -> Attr c msg
+  mirrorrtl v = prop #{const XTK_PROP_MIRROR_RTL} (VBool v)
+
+instance HasMirrorrtl Fonticon
 
 class HasVirtualItems c where
   virtualItems :: P.Int -> (P.Int -> El msg) -> Attr c msg

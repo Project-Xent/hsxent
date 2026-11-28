@@ -130,6 +130,17 @@ instance XEnum Clock where
   toC ClockH12 = #{const XTK_CLOCK_12H}
   toC ClockH24 = #{const XTK_CLOCK_24H}
 
+data ConnectedKind
+  = ConnectedKindGravity
+  | ConnectedKindDirect
+  | ConnectedKindBasic
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum ConnectedKind where
+  toC ConnectedKindGravity = #{const XTK_CONNECTED_GRAVITY}
+  toC ConnectedKindDirect = #{const XTK_CONNECTED_DIRECT}
+  toC ConnectedKindBasic = #{const XTK_CONNECTED_BASIC}
+
 data DialogButton
   = DialogButtonNone
   | DialogButtonPrimary
@@ -355,6 +366,23 @@ instance XEnum NavSlot where
   toC NavSlotPageHeader = #{const XTK_NAV_SLOT_PAGE_HEADER}
   toC NavSlotContentOverlay = #{const XTK_NAV_SLOT_CONTENT_OVERLAY}
 
+data NavTransitionKind
+  = NavTransitionKindEntrance
+  | NavTransitionKindSlideRight
+  | NavTransitionKindSlideLeft
+  | NavTransitionKindSlideBottom
+  | NavTransitionKindDrillIn
+  | NavTransitionKindSuppress
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum NavTransitionKind where
+  toC NavTransitionKindEntrance = #{const XTK_NAV_TRANSITION_ENTRANCE}
+  toC NavTransitionKindSlideRight = #{const XTK_NAV_TRANSITION_SLIDE_RIGHT}
+  toC NavTransitionKindSlideLeft = #{const XTK_NAV_TRANSITION_SLIDE_LEFT}
+  toC NavTransitionKindSlideBottom = #{const XTK_NAV_TRANSITION_SLIDE_BOTTOM}
+  toC NavTransitionKindDrillIn = #{const XTK_NAV_TRANSITION_DRILL_IN}
+  toC NavTransitionKindSuppress = #{const XTK_NAV_TRANSITION_SUPPRESS}
+
 data OverflowButton
   = OverflowButtonAuto
   | OverflowButtonVisible
@@ -571,6 +599,23 @@ instance XEnum TextTrim where
   toC TextTrimWord = #{const XTK_TRIM_WORD}
   toC TextTrimWordEllipsis = #{const XTK_TRIM_WORD_ELLIPSIS}
   toC TextTrimPathEllipsis = #{const XTK_TRIM_PATH_ELLIPSIS}
+
+data ThemeTransitionKind
+  = ThemeTransitionKindNone
+  | ThemeTransitionKindEntrance
+  | ThemeTransitionKindAddDelete
+  | ThemeTransitionKindContent
+  | ThemeTransitionKindReorder
+  | ThemeTransitionKindPopup
+  deriving (P.Eq, P.Ord, P.Show, P.Enum, P.Bounded)
+
+instance XEnum ThemeTransitionKind where
+  toC ThemeTransitionKindNone = #{const XTK_THEME_TRANSITION_NONE}
+  toC ThemeTransitionKindEntrance = #{const XTK_THEME_TRANSITION_ENTRANCE}
+  toC ThemeTransitionKindAddDelete = #{const XTK_THEME_TRANSITION_ADD_DELETE}
+  toC ThemeTransitionKindContent = #{const XTK_THEME_TRANSITION_CONTENT}
+  toC ThemeTransitionKindReorder = #{const XTK_THEME_TRANSITION_REORDER}
+  toC ThemeTransitionKindPopup = #{const XTK_THEME_TRANSITION_POPUP}
 
 data TickPlacement
   = TickPlacementInline
@@ -986,3 +1031,13 @@ data Navslot
 
 navslot :: [Attr Navslot msg] -> [El msg] -> El msg
 navslot = element #{const XTK_CTRL_NAVSLOT}
+
+data Frame
+
+frame :: [Attr Frame msg] -> [El msg] -> El msg
+frame = element #{const XTK_CTRL_FRAME}
+
+data Fonticon
+
+fonticon :: [Attr Fonticon msg] -> [El msg] -> El msg
+fonticon = element #{const XTK_CTRL_FONTICON}
